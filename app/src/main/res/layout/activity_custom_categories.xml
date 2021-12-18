@@ -32,7 +32,8 @@
         android:theme="@style/ToolbarTheme"
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:titleTextColor="@color/textColorPrimary" />
+        app:titleTextColor="@color/textColorPrimary"
+        tools:ignore="MissingConstraints" />
 
     <ListView
         android:id="@+id/custom_categories_list_view"

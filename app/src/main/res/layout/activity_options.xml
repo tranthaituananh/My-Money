@@ -14,7 +14,8 @@
         android:theme="@style/ToolbarTheme"
         app:layout_scrollFlags="scroll|enterAlways|snap"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:titleTextColor="@color/textColorPrimary" />
+        app:titleTextColor="@color/textColorPrimary"
+        tools:ignore="MissingConstraints" />
     <fragment android:name="pl.cyfrogen.nhom16_mymoney.ui.options.OptionsFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"

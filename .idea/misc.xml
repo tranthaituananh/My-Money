@@ -12,8 +12,38 @@
         <entry key="..\:/DATA/DOWNLOADS/PROJECT/nhom16_my_money/app/src/main/res/layout/fragment_home.xml" value="0.20260416666666667" />
         <entry key="..\:/DATA/DOWNLOADS/PROJECT/nhom16_my_money/app/src/main/res/layout/fragment_statistics.xml" value="0.20260416666666667" />
         <entry key="..\:/DATA/DOWNLOADS/PROJECT/nhom16_my_money/app/src/main/res/layout/income_expenses_comparasion_row.xml" value="0.20260416666666667" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/drawable/background_splash.xml" value="0.21510416666666668" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/drawable/category_briefcase.xml" value="0.21510416666666668" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/drawable/category_clothing.xml" value="0.21510416666666668" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21510416666666668" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/drawable/icon_calendar.xml" value="0.21510416666666668" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/drawable/icon_calendar_active.xml" value="0.21510416666666668" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/drawable/icon_options.xml" value="0.21510416666666668" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/activity_add_custom_category.xml" value="0.19895833333333332" />
         <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/activity_add_wallet_entry.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/activity_custom_categories.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/activity_edit_custom_category.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/activity_edit_wallet_entry.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/activity_main_menu.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/activity_options.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/activity_signin.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/content_main_menu.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/custom_categories_listview_row.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/favorites_listview_row.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/fragment_history.xml" value="0.19895833333333332" />
         <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/fragment_home.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/fragment_options.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/fragment_statistics.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/history_listview_row.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/income_expenses_comparasion_row.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/new_entry_type_spinner_row.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/set_counter_period_dialog.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/set_counter_type_dialog.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/set_currency_dialog.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/set_first_day_of_month_dialog.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/set_first_day_of_week_dialog.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/set_limit_dialog.xml" value="0.19895833333333332" />
+        <entry key="..\:/DATA/DOWNLOADS/nhom16_my_money/app/src/main/res/layout/top_categories_statistics_listview_row.xml" value="0.19895833333333332" />
       </map>
     </option>
   </component>
