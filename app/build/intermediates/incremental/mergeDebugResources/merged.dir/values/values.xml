@@ -2765,17 +2765,17 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="day">\u0020day</string>
     <string name="days">\u0020days</string>
-    <string name="default_web_client_id" translatable="false">781433016758-rqh2ljjdv5d4snlrvqlsp1qidgeb7ceh.apps.googleusercontent.com</string>
+    <string name="default_web_client_id" translatable="false">248320734877-mhsv94aadahjvm7rnjhhdb9fsqno1fhf.apps.googleusercontent.com</string>
     <string name="duration">Duration:\u0020</string>
     <string name="expand_button_title">Advanced</string>
     <string name="fab_transformation_scrim_behavior" translatable="false">android.support.design.transformation.FabTransformationScrimBehavior</string>
     <string name="fab_transformation_sheet_behavior" translatable="false">android.support.design.transformation.FabTransformationSheetBehavior</string>
-    <string name="firebase_database_url" translatable="false">https://nhom16-bugetto-default-rtdb.asia-southeast1.firebasedatabase.app</string>
-    <string name="gcm_defaultSenderId" translatable="false">781433016758</string>
-    <string name="google_api_key" translatable="false">AIzaSyDvYTbk0vI87DTphUVbGa9zfrFUYVVLF8k</string>
-    <string name="google_app_id" translatable="false">1:781433016758:android:f96d109e902214b41b7117</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDvYTbk0vI87DTphUVbGa9zfrFUYVVLF8k</string>
-    <string name="google_storage_bucket" translatable="false">nhom16-bugetto.appspot.com</string>
+    <string name="firebase_database_url" translatable="false">https://nhom16-my-money-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+    <string name="gcm_defaultSenderId" translatable="false">248320734877</string>
+    <string name="google_api_key" translatable="false">AIzaSyC5gYEd8HgAPIb89btV3MM5hT6X_-1mv9Q</string>
+    <string name="google_app_id" translatable="false">1:248320734877:android:c65436856966133d0e0674</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC5gYEd8HgAPIb89btV3MM5hT6X_-1mv9Q</string>
+    <string name="google_storage_bucket" translatable="false">nhom16-my-money.appspot.com</string>
     <string name="hide_bottom_view_on_scroll_behavior" translatable="false">android.support.design.behavior.HideBottomViewOnScrollBehavior</string>
     <string name="materialcolorpicker__app_name">Android Material Color Picker Dialog</string>
     <string name="materialcolorpicker__btnSelectColor">Select</string>
@@ -2825,7 +2825,7 @@
     <string name="pref_key_limit">limit</string>
     <string name="pref_key_logout">logout</string>
     <string name="pref_key_policy">privacy_policy</string>
-    <string name="project_id" translatable="false">nhom16-bugetto</string>
+    <string name="project_id" translatable="false">nhom16-my-money</string>
     <string name="search_menu_title">Search</string>
     <string name="status_bar_notification_info_overflow">999+</string>
     <string name="summary_collapsed_preference_list"><ns1:g id="current_items">%1$s</ns1:g>, <ns1:g id="added_items">%2$s</ns1:g></string>

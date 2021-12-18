@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "781433016758",
-    "firebase_url": "https://nhom16-bugetto-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "nhom16-bugetto",
-    "storage_bucket": "nhom16-bugetto.appspot.com"
+    "project_number": "248320734877",
+    "firebase_url": "https://nhom16-my-money-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "nhom16-my-money",
+    "storage_bucket": "nhom16-my-money.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:781433016758:android:f96d109e902214b41b7117",
+        "mobilesdk_app_id": "1:248320734877:android:c65436856966133d0e0674",
         "android_client_info": {
           "package_name": "pl.cyfrogen.budget"
         }
       },
       "oauth_client": [
         {
-          "client_id": "781433016758-e5kqkn26l1bnqp1qr4evv0ul1ssiq61e.apps.googleusercontent.com",
+          "client_id": "248320734877-k0p0s7n4cpd82rovldrr3ip8s8mn0g10.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "pl.cyfrogen.budget",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "781433016758-rqh2ljjdv5d4snlrvqlsp1qidgeb7ceh.apps.googleusercontent.com",
+          "client_id": "248320734877-mhsv94aadahjvm7rnjhhdb9fsqno1fhf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDvYTbk0vI87DTphUVbGa9zfrFUYVVLF8k"
+          "current_key": "AIzaSyC5gYEd8HgAPIb89btV3MM5hT6X_-1mv9Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "781433016758-rqh2ljjdv5d4snlrvqlsp1qidgeb7ceh.apps.googleusercontent.com",
+              "client_id": "248320734877-mhsv94aadahjvm7rnjhhdb9fsqno1fhf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
