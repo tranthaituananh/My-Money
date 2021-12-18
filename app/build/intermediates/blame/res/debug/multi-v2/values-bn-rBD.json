@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bn-rBD\\values-bn-rBD.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-bn-rBD\\values-bn-rBD.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,341,462,551,674,804,929,1029,1125,1223,1316",
+                        "endColumns": "114,120,88,122,129,124,99,95,97,92,99",
+                        "endOffsets": "336,457,546,669,799,924,1024,1120,1218,1311,1411"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,220,341,430,553,683,808,908,1004,1102,1195",
+                        "endColumns": "114,120,88,122,129,124,99,95,97,92,99",
+                        "endOffsets": "215,336,425,548,678,803,903,999,1097,1190,1290"
+                    }
+                }
+            ]
+        }
+    ]
+}

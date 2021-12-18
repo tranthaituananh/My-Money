@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:elevation="0dp"
+            android:theme="@style/ToolbarTheme"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/textColorPrimary"
+
+            />
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabTextColor="@color/textColorPrimary"/>
+    </android.support.design.widget.AppBarLayout>
+    <include layout="@layout/content_main_menu" />
+    <android.support.design.widget.FloatingActionButton
+        android:transitionName="transition_reveal"
+        android:id="@+id/add_wallet_entry_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/baseline_add_white_18dp"
+        app:backgroundTint="@color/colorPrimary"
+        android:layout_gravity="right|bottom"
+        android:layout_margin="16dp"
+        app:borderWidth="0dp"
+        app:elevation="6dp" />
+
+    -
+</android.support.design.widget.CoordinatorLayout>

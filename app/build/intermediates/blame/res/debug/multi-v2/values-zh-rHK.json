@@ -1,0 +1,111 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh-rHK\\values-zh-rHK.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\9716c22b2d13feafc061042a5af774fb\\res\\values-zh-rHK\\values-zh-rHK.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,293,393,475,572,680,756,832,924,1018,1110,1206,1302,1396,1492,1584,1676,1768,1846,1942,2038,2133,2230,2325,2423,2574,2668",
+                        "endColumns": "94,92,99,81,96,107,75,75,91,93,91,95,95,93,95,91,91,91,77,95,95,94,96,94,97,150,93,77",
+                        "endOffsets": "195,288,388,470,567,675,751,827,919,1013,1105,1201,1297,1391,1487,1579,1671,1763,1841,1937,2033,2128,2225,2320,2418,2569,2663,2741"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,62",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,293,393,475,572,680,756,832,924,1018,1110,1206,1302,1396,1492,1584,1676,1768,1846,1942,2038,2133,2230,2325,2423,2574,6198",
+                        "endColumns": "94,92,99,81,96,107,75,75,91,93,91,95,95,93,95,91,91,91,77,95,95,94,96,94,97,150,93,77",
+                        "endOffsets": "195,288,388,470,567,675,751,827,919,1013,1105,1201,1297,1391,1487,1579,1671,1763,1841,1937,2033,2128,2225,2320,2418,2569,2663,6271"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\preference-v7-28.0.0.aar\\4868894ed277f28e3a1d40e8e3458b80\\res\\values-zh-rHK\\values-zh-rHK.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "105,186,354,433",
+                        "endColumns": "80,167,78,75",
+                        "endOffsets": "181,349,428,504"
+                    },
+                    "to": {
+                        "startLines": "50,64,65,66",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "5113,6377,6545,6624",
+                        "endColumns": "80,167,78,75",
+                        "endOffsets": "5189,6540,6619,6695"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\d36b3ffc98e699f9f6994cb4b6c306f0\\res\\values-zh-rHK\\values-zh-rHK.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "63",
+                        "startColumns": "4",
+                        "startOffsets": "6276",
+                        "endColumns": "100",
+                        "endOffsets": "6372"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\d279175b5c90d74ffd1701c14a705413\\res\\values-zh-rHK\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "249,348,508,621,721,887,1001,1129,1247,1416,1515,1675,1788,1954,2088,2169,2252",
+                        "endColumns": "98,159,112,99,165,113,127,117,168,98,159,112,165,133,80,82,96",
+                        "endOffsets": "347,507,620,720,886,1000,1128,1246,1415,1514,1674,1787,1953,2087,2168,2251,2348"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32,33,34,35,36,38,39,40,41,42,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2668,2771,2931,3048,3152,3318,3436,3568,3857,4026,4129,4289,4406,4572,4710,4795,4882",
+                        "endColumns": "102,159,116,103,165,117,131,121,168,102,159,116,165,137,84,86,100",
+                        "endOffsets": "2766,2926,3043,3147,3313,3431,3563,3685,4021,4124,4284,4401,4567,4705,4790,4877,4978"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-zh-rHK\\values-zh-rHK.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,266,307,356,454,562,639,733,846,942,1024,1105,1188,1268",
+                        "endColumns": "39,40,48,97,107,76,93,112,95,81,80,82,79,91",
+                        "endOffsets": "261,302,351,449,557,634,728,841,937,1019,1100,1183,1263,1355"
+                    },
+                    "to": {
+                        "startLines": "47,48,49,51,52,53,54,55,56,57,58,59,60,61",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4983,5023,5064,5194,5292,5400,5477,5571,5684,5780,5862,5943,6026,6106",
+                        "endColumns": "39,40,48,97,107,76,93,112,95,81,80,82,79,91",
+                        "endOffsets": "5018,5059,5108,5287,5395,5472,5566,5679,5775,5857,5938,6021,6101,6193"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.1.0.aar\\48a84bf4c16d6f9b5329ab2d537e5863\\res\\values-zh-rHK\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "251",
+                        "endColumns": "166",
+                        "endOffsets": "417"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "3690",
+                        "endColumns": "166",
+                        "endOffsets": "3852"
+                    }
+                }
+            ]
+        }
+    ]
+}

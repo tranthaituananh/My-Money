@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-et-rEE\\values-et-rEE.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-et-rEE\\values-et-rEE.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,335,453,534,647,768,884,977,1070,1166,1254",
+                        "endColumns": "108,117,80,112,120,115,92,92,95,87,100",
+                        "endOffsets": "330,448,529,642,763,879,972,1065,1161,1249,1350"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,214,332,413,526,647,763,856,949,1045,1133",
+                        "endColumns": "108,117,80,112,120,115,92,92,95,87,100",
+                        "endOffsets": "209,327,408,521,642,758,851,944,1040,1128,1229"
+                    }
+                }
+            ]
+        }
+    ]
+}

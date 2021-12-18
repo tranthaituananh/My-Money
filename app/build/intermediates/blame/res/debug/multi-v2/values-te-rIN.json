@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-te-rIN\\values-te-rIN.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-te-rIN\\values-te-rIN.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,335,453,538,649,772,888,989,1082,1180,1278",
+                        "endColumns": "108,117,84,110,122,115,100,92,97,97,101",
+                        "endOffsets": "330,448,533,644,767,883,984,1077,1175,1273,1375"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,214,332,417,528,651,767,868,961,1059,1157",
+                        "endColumns": "108,117,84,110,122,115,100,92,97,97,101",
+                        "endOffsets": "209,327,412,523,646,762,863,956,1054,1152,1254"
+                    }
+                }
+            ]
+        }
+    ]
+}

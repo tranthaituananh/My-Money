@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-is-rIS\\values-is-rIS.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-is-rIS\\values-is-rIS.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,335,444,524,640,756,868,961,1057,1149,1233",
+                        "endColumns": "108,108,79,115,115,111,92,95,91,83,95",
+                        "endOffsets": "330,439,519,635,751,863,956,1052,1144,1228,1324"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,214,323,403,519,635,747,840,936,1028,1112",
+                        "endColumns": "108,108,79,115,115,111,92,95,91,83,95",
+                        "endOffsets": "209,318,398,514,630,742,835,931,1023,1107,1203"
+                    }
+                }
+            ]
+        }
+    ]
+}

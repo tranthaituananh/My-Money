@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "781433016758",
+    "firebase_url": "https://nhom16-bugetto-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "nhom16-bugetto",
+    "storage_bucket": "nhom16-bugetto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:781433016758:android:f96d109e902214b41b7117",
+        "android_client_info": {
+          "package_name": "pl.cyfrogen.budget"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "781433016758-e5kqkn26l1bnqp1qr4evv0ul1ssiq61e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.cyfrogen.budget",
+            "certificate_hash": "79600ad94fd1e1b9bbc93afc472d3415dc878382"
+          }
+        },
+        {
+          "client_id": "781433016758-rqh2ljjdv5d4snlrvqlsp1qidgeb7ceh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvYTbk0vI87DTphUVbGa9zfrFUYVVLF8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "781433016758-rqh2ljjdv5d4snlrvqlsp1qidgeb7ceh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

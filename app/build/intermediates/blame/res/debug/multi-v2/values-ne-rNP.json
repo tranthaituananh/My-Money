@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ne-rNP\\values-ne-rNP.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-ne-rNP\\values-ne-rNP.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,333,444,530,639,759,870,970,1066,1164,1258",
+                        "endColumns": "106,110,85,108,119,110,99,95,97,93,96",
+                        "endOffsets": "328,439,525,634,754,865,965,1061,1159,1253,1350"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,212,323,409,518,638,749,849,945,1043,1137",
+                        "endColumns": "106,110,85,108,119,110,99,95,97,93,96",
+                        "endOffsets": "207,318,404,513,633,744,844,940,1038,1132,1229"
+                    }
+                }
+            ]
+        }
+    ]
+}

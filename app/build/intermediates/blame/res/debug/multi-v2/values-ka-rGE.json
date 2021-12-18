@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ka-rGE\\values-ka-rGE.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-ka-rGE\\values-ka-rGE.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,331,443,526,638,757,870,966,1058,1151,1239",
+                        "endColumns": "104,111,82,111,118,112,95,91,92,87,95",
+                        "endOffsets": "326,438,521,633,752,865,961,1053,1146,1234,1330"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,210,322,405,517,636,749,845,937,1030,1118",
+                        "endColumns": "104,111,82,111,118,112,95,91,92,87,95",
+                        "endOffsets": "205,317,400,512,631,744,840,932,1025,1113,1209"
+                    }
+                }
+            ]
+        }
+    ]
+}

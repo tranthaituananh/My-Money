@@ -1,0 +1,57 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\9716c22b2d13feafc061042a5af774fb\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "219",
+                        "endLines": "7",
+                        "endColumns": "12",
+                        "endOffsets": "387"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\d36b3ffc98e699f9f6994cb4b6c306f0\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "4,7,10,13",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "173,388,521,640",
+                        "endLines": "4,9,12,15",
+                        "endColumns": "97,12,12,12",
+                        "endOffsets": "266,516,635,752"
+                    },
+                    "to": {
+                        "startLines": "3,8,11,14",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "121,392,525,644",
+                        "endLines": "3,10,13,16",
+                        "endColumns": "97,12,12,12",
+                        "endOffsets": "214,520,639,756"
+                    }
+                }
+            ]
+        }
+    ]
+}

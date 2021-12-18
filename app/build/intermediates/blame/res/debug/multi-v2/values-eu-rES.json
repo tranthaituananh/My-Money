@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-eu-rES\\values-eu-rES.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-eu-rES\\values-eu-rES.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,357,472,553,678,799,929,1031,1122,1217,1306",
+                        "endColumns": "130,114,80,124,120,129,101,90,94,88,102",
+                        "endOffsets": "352,467,548,673,794,924,1026,1117,1212,1301,1404"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,236,351,432,557,678,808,910,1001,1096,1185",
+                        "endColumns": "130,114,80,124,120,129,101,90,94,88,102",
+                        "endOffsets": "231,346,427,552,673,803,905,996,1091,1180,1283"
+                    }
+                }
+            ]
+        }
+    ]
+}

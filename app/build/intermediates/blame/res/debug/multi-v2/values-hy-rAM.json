@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hy-rAM\\values-hy-rAM.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-hy-rAM\\values-hy-rAM.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,340,451,536,654,772,894,988,1078,1172,1260",
+                        "endColumns": "113,110,84,117,117,121,93,89,93,87,101",
+                        "endOffsets": "335,446,531,649,767,889,983,1073,1167,1255,1357"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,219,330,415,533,651,773,867,957,1051,1139",
+                        "endColumns": "113,110,84,117,117,121,93,89,93,87,101",
+                        "endOffsets": "214,325,410,528,646,768,862,952,1046,1134,1236"
+                    }
+                }
+            ]
+        }
+    ]
+}

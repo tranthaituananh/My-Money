@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mk-rMK\\values-mk-rMK.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,328,443,524,636,755,869,962,1052,1144,1233",
+                        "endColumns": "101,114,80,111,118,113,92,89,91,88,103",
+                        "endOffsets": "323,438,519,631,750,864,957,1047,1139,1228,1332"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,207,322,403,515,634,748,841,931,1023,1112",
+                        "endColumns": "101,114,80,111,118,113,92,89,91,88,103",
+                        "endOffsets": "202,317,398,510,629,743,836,926,1018,1107,1211"
+                    }
+                }
+            ]
+        }
+    ]
+}

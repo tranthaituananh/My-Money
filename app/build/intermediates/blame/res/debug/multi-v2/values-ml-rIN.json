@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ml-rIN\\values-ml-rIN.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-ml-rIN\\values-ml-rIN.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,339,455,541,672,796,928,1032,1132,1234,1329",
+                        "endColumns": "112,115,85,130,123,131,103,99,101,94,106",
+                        "endOffsets": "334,450,536,667,791,923,1027,1127,1229,1324,1431"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,218,334,420,551,675,807,911,1011,1113,1208",
+                        "endColumns": "112,115,85,130,123,131,103,99,101,94,106",
+                        "endOffsets": "213,329,415,546,670,802,906,1006,1108,1203,1310"
+                    }
+                }
+            ]
+        }
+    ]
+}

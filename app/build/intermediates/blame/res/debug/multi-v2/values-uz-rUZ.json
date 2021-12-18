@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-uz-rUZ\\values-uz-rUZ.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\trant\\.gradle\\caches\\transforms-1\\files-1.1\\library-0.2.0.aar\\09ba60168deea86f10dd6c68cf786dd2\\res\\values-uz-rUZ\\values-uz-rUZ.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "226,331,446,527,639,758,874,968,1059,1154,1243",
+                        "endColumns": "104,114,80,111,118,115,93,90,94,88,102",
+                        "endOffsets": "326,441,522,634,753,869,963,1054,1149,1238,1341"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,210,325,406,518,637,753,847,938,1033,1122",
+                        "endColumns": "104,114,80,111,118,115,93,90,94,88,102",
+                        "endOffsets": "205,320,401,513,632,748,842,933,1028,1117,1220"
+                    }
+                }
+            ]
+        }
+    ]
+}
