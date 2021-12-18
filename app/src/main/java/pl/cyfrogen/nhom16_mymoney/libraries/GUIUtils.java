@@ -1,9 +1,4 @@
-// based on
-// https://www.thedroidsonroids.com/blog/android/meaningful-motion-with-shared-element-transition-and-circular-reveal-animation/
-// https://github.com/DroidsOnRoids/MaterialShowcase
-
 package pl.cyfrogen.nhom16_mymoney.libraries;
-
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -16,8 +11,8 @@ import android.view.animation.Animation;
 
 import pl.cyfrogen.nhom16_mymoney.R;
 
-public class GUIUtils {
-
+public class GUIUtils
+{
     public static void animateRevealHide(final Context ctx, final View view, @ColorRes final int color,
                                          final int finalRadius, final OnRevealAnimationListener listener) {
         int cx = (view.getLeft() + view.getRight()) / 2;
@@ -28,14 +23,16 @@ public class GUIUtils {
                 ViewAnimationUtils.createCircularReveal(view, cx, cy, initialRadius, finalRadius);
         anim.addListener(new AnimatorListenerAdapter() {
             @Override
-            public void onAnimationStart(Animator animation) {
+            public void onAnimationStart(Animator animation)
+            {
                 super.onAnimationStart(animation);
                 view.setBackgroundColor(ctx.getResources().getColor(color));
 
             }
 
             @Override
-            public void onAnimationEnd(Animator animation) {
+            public void onAnimationEnd(Animator animation)
+            {
                 super.onAnimationEnd(animation);
                 view.setVisibility(View.INVISIBLE);
                 listener.onRevealHide();
@@ -44,6 +41,7 @@ public class GUIUtils {
         anim.setDuration(ctx.getResources().getInteger(R.integer.animation_duration_exit));
         anim.start();
     }
+
     public static void animateRevealShow(final Context ctx, final View view, final int startRadius,
                                          @ColorRes final int color, int x, int y, final OnRevealAnimationListener listener) {
         float finalRadius = (float) Math.hypot(view.getWidth(), view.getHeight());
@@ -54,12 +52,14 @@ public class GUIUtils {
         anim.setInterpolator(new AccelerateDecelerateInterpolator());
         anim.addListener(new AnimatorListenerAdapter() {
             @Override
-            public void onAnimationStart(Animator animation) {
+            public void onAnimationStart(Animator animation)
+            {
                 view.setBackgroundColor(ctx.getResources().getColor(color));
             }
 
             @Override
-            public void onAnimationEnd(Animator animation) {
+            public void onAnimationEnd(Animator animation)
+            {
                 view.setVisibility(View.VISIBLE);
                 listener.onRevealShow();
             }
@@ -67,19 +67,21 @@ public class GUIUtils {
         anim.start();
     }
 
-    private static Animation.AnimationListener getGoneAnimationListener(final OnReturnAnimationFinished listener, final View... views) {
+    private static Animation.AnimationListener getGoneAnimationListener(final OnReturnAnimationFinished listener, final View... views)
+    {
         return new Animation.AnimationListener() {
             @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
+            public void onAnimationStart(Animation animation) {}
 
             @Override
-            public void onAnimationEnd(Animation animation) {
-                for(View v : views) {
+            public void onAnimationEnd(Animation animation)
+            {
+                for(View v : views)
+                {
                     v.setVisibility(View.INVISIBLE);
                 }
-                if(listener != null) {
+                if(listener != null)
+                {
                     listener.onAnimationFinished();
                 }
             }
@@ -91,37 +93,40 @@ public class GUIUtils {
         };
     }
 
-    private static Animation.AnimationListener getShowAnimationListener(final OnReturnAnimationFinished listener, final View... views) {
+    private static Animation.AnimationListener getShowAnimationListener(final OnReturnAnimationFinished listener, final View... views)
+    {
         return new Animation.AnimationListener() {
             @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
+            public void onAnimationStart(Animation animation) {}
 
             @Override
-            public void onAnimationEnd(Animation animation) {
-                for(View v : views) {
+            public void onAnimationEnd(Animation animation)
+            {
+                for(View v : views)
+                {
                     v.setVisibility(View.VISIBLE);
                 }
-                if(listener != null) {
+                if(listener != null)
+                {
                     listener.onAnimationFinished();
                 }
             }
 
             @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
+            public void onAnimationRepeat(Animation animation) {}
         };
     }
 
-    private static void startAnimations(Animation animation, View... views) {
-        for(View v : views) {
+    private static void startAnimations(Animation animation, View... views)
+    {
+        for(View v : views)
+        {
             v.startAnimation(animation);
         }
     }
 
-    public interface OnReturnAnimationFinished {
+    public interface OnReturnAnimationFinished
+    {
         void onAnimationFinished();
     }
 }

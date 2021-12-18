@@ -4,7 +4,8 @@ import android.graphics.Color;
 
 import pl.cyfrogen.nhom16_mymoney.R;
 
-public  class DefaultCategories {
+public  class DefaultCategories
+{
     private static Category[] categories = new Category[]{
             new Category(":others", "Others", R.drawable.category_default, Color.parseColor("#455a64")),
             new Category(":clothing", "Clothing", R.drawable.category_clothing, Color.parseColor("#d32f2f")),
@@ -21,18 +22,16 @@ public  class DefaultCategories {
             new Category(":sport", "Sport", R.drawable.category_sport, Color.parseColor("#afb42b")),
             new Category(":transfer", "Transfer", R.drawable.category_transfer, Color.parseColor("#fbc02d")),
             new Category(":transport", "Transport", R.drawable.category_transport, Color.parseColor("#ffa000")),
-            new Category(":work", "Work", R.drawable.category_briefcase, Color.parseColor("#f57c00")),
+            new Category(":work", "Work", R.drawable.category_briefcase, Color.parseColor("#f57c00")),};
 
-
-    };
-
-    public static Category createDefaultCategoryModel(String visibleName) {
+    public static Category createDefaultCategoryModel(String visibleName)
+    {
         return new Category("default", visibleName, R.drawable.category_default,
                 Color.parseColor("#26a69a"));
     }
 
-
-    public static Category[] getDefaultCategories() {
+    public static Category[] getDefaultCategories()
+    {
         return categories;
     }
 }

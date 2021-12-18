@@ -26,7 +26,8 @@ import pl.cyfrogen.nhom16_mymoney.firebase.viewmodel_factories.WalletEntriesHist
 import pl.cyfrogen.nhom16_mymoney.base.BaseFragment;
 import pl.cyfrogen.nhom16_mymoney.ui.options.OptionsActivity;
 
-public class HistoryFragment extends BaseFragment {
+public class HistoryFragment extends BaseFragment
+{
     public static final CharSequence TITLE = "History";
     Calendar calendarStart;
     Calendar calendarEnd;
@@ -35,27 +36,28 @@ public class HistoryFragment extends BaseFragment {
     private Menu menu;
     private TextView dividerTextView;
 
-    public static HistoryFragment newInstance() {
-
+    public static HistoryFragment newInstance()
+    {
         return new HistoryFragment();
     }
 
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
 
-
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
+    {
         return inflater.inflate(R.layout.fragment_history, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
+    {
         dividerTextView = view.findViewById(R.id.divider_textview);
         dividerTextView.setText("Last 100 payments:");
         historyRecyclerView = view.findViewById(R.id.history_recycler_view);
@@ -71,19 +73,20 @@ public class HistoryFragment extends BaseFragment {
         });
     }
 
-
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
         inflater.inflate(R.menu.history_fragment_menu, menu);
         this.menu = menu;
         updateCalendarIcon();
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
             case R.id.action_date_range:
                 showSelectDateRangeDialog();
                 return true;
@@ -95,11 +98,13 @@ public class HistoryFragment extends BaseFragment {
         }
     }
 
-    private void updateCalendarIcon() {
+    private void updateCalendarIcon()
+    {
         MenuItem calendarIcon = menu.findItem(R.id.action_date_range);
         if (calendarIcon == null) return;
         WalletEntriesHistoryViewModelFactory.Model model = WalletEntriesHistoryViewModelFactory.getModel(getUid(), getActivity());
-        if (model.hasDateSet()) {
+        if (model.hasDateSet())
+        {
             calendarIcon.setIcon(ContextCompat.getDrawable(getContext(), R.drawable.icon_calendar_active));
 
             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yy");
@@ -111,13 +116,14 @@ public class HistoryFragment extends BaseFragment {
 
             dividerTextView.setText("Last 100 payments:");
         }
-
     }
 
-    private void showSelectDateRangeDialog() {
+    private void showSelectDateRangeDialog()
+    {
         SmoothDateRangePickerFragment datePicker = SmoothDateRangePickerFragment.newInstance(new SmoothDateRangePickerFragment.OnDateRangeSetListener() {
             @Override
-            public void onDateRangeSet(SmoothDateRangePickerFragment view, int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd) {
+            public void onDateRangeSet(SmoothDateRangePickerFragment view, int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd)
+            {
                 calendarStart = Calendar.getInstance();
                 calendarStart.set(yearStart, monthStart, dayStart);
                 calendarStart.set(Calendar.HOUR_OF_DAY, 0);
@@ -135,7 +141,8 @@ public class HistoryFragment extends BaseFragment {
         });
         datePicker.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
-            public void onCancel(DialogInterface dialog) {
+            public void onCancel(DialogInterface dialog)
+            {
                 calendarStart = null;
                 calendarEnd = null;
                 calendarUpdated();
@@ -143,10 +150,10 @@ public class HistoryFragment extends BaseFragment {
             }
         });
         datePicker.show(getActivity().getFragmentManager(), "TAG");
-        //todo library doesn't respect other method than deprecated
     }
 
-    private void calendarUpdated() {
+    private void calendarUpdated()
+    {
         historyRecyclerViewAdapter.setDateRange(calendarStart, calendarEnd);
     }
 }

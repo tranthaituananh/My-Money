@@ -40,8 +40,10 @@ public class OptionsFragment extends PreferenceFragmentCompat {
         addPreferencesFromResource(R.xml.app_preferences);
 
         Field[] fields = R.string.class.getFields();
-        for (int i = 0; i < fields.length; i++) {
-            if (fields[i].getName().startsWith("pref_key")) {
+        for (int i = 0; i < fields.length; i++)
+        {
+            if (fields[i].getName().startsWith("pref_key"))
+            {
                 try {
                     preferences.add(findPreference(getString((int) fields[i].get(null))));
                 } catch (IllegalAccessException e) {

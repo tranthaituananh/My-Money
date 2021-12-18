@@ -10,7 +10,8 @@ import com.google.firebase.database.Query;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirebaseQueryLiveDataSet<T> extends LiveData<FirebaseElement<ListDataSet<T>>> {
+public class FirebaseQueryLiveDataSet<T> extends LiveData<FirebaseElement<ListDataSet<T>>>
+{
     private final Class<T> genericTypeClass;
     private Query query;
     private ValueEventListener listener;
@@ -18,7 +19,8 @@ public class FirebaseQueryLiveDataSet<T> extends LiveData<FirebaseElement<ListDa
     private List<T> liveDataSetEntries;
     private ArrayList<String> liveDataSetIndexes;
 
-    public FirebaseQueryLiveDataSet(Class<T> genericTypeClass, Query query) {
+    public FirebaseQueryLiveDataSet(Class<T> genericTypeClass, Query query)
+    {
         listener = new ValueEventListener();
         liveDataSet = new ListDataSet<>();
         liveDataSetEntries = liveDataSet.list;
@@ -28,7 +30,8 @@ public class FirebaseQueryLiveDataSet<T> extends LiveData<FirebaseElement<ListDa
         this.query = query;
     }
 
-    public void setQuery(Query query) {
+    public void setQuery(Query query)
+    {
         removeListener();
         liveDataSet.clear();
         setValue(new FirebaseElement<>(liveDataSet));
@@ -37,38 +40,42 @@ public class FirebaseQueryLiveDataSet<T> extends LiveData<FirebaseElement<ListDa
     }
 
 
-    private void removeListener() {
+    private void removeListener()
+    {
         query.removeEventListener(listener);
     }
 
-    private void setListener() {
+    private void setListener()
+    {
         query.addChildEventListener(listener);
     }
 
     @Override
-    protected void onActive() {
+    protected void onActive()
+    {
         setListener();
     }
 
-
     @Override
-    protected void onInactive() {
+    protected void onInactive()
+    {
         removeListener();
         liveDataSet.clear();
     }
 
-
-
-    private class ValueEventListener implements ChildEventListener {
-
+    private class ValueEventListener implements ChildEventListener
+    {
         @Override
-        public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
+        public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName)
+        {
             T item = dataSnapshot.getValue(genericTypeClass);
 
             String key = dataSnapshot.getKey();
-            if (!liveDataSetIndexes.contains(key)) {
+            if (!liveDataSetIndexes.contains(key))
+            {
                 int insertedPosition;
-                if (previousChildName == null) {
+                if (previousChildName == null)
+                {
                     liveDataSetEntries.add(0, item);
                     liveDataSetIndexes.add(0, key);
                     insertedPosition = 0;
@@ -91,11 +98,13 @@ public class FirebaseQueryLiveDataSet<T> extends LiveData<FirebaseElement<ListDa
         }
 
         @Override
-        public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
+        public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName)
+        {
             T item = dataSnapshot.getValue(genericTypeClass);
             String key = dataSnapshot.getKey();
 
-            if (liveDataSetIndexes.contains(key)) {
+            if (liveDataSetIndexes.contains(key))
+            {
                 int index = liveDataSetIndexes.indexOf(key);
                 T oldItem = liveDataSetEntries.get(index);
                 liveDataSetEntries.set(index, item);
@@ -106,10 +115,12 @@ public class FirebaseQueryLiveDataSet<T> extends LiveData<FirebaseElement<ListDa
         }
 
         @Override
-        public void onChildRemoved(DataSnapshot dataSnapshot) {
+        public void onChildRemoved(DataSnapshot dataSnapshot)
+        {
             String key = dataSnapshot.getKey();
 
-            if (liveDataSetIndexes.contains(key)) {
+            if (liveDataSetIndexes.contains(key))
+            {
                 int index = liveDataSetIndexes.indexOf(key);
                 if (index == -1) return;
                 T item = liveDataSetEntries.get(index);
@@ -122,7 +133,8 @@ public class FirebaseQueryLiveDataSet<T> extends LiveData<FirebaseElement<ListDa
         }
 
         @Override
-        public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
+        public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName)
+        {
             T item = dataSnapshot.getValue(genericTypeClass);
             String key = dataSnapshot.getKey();
 
@@ -154,7 +166,8 @@ public class FirebaseQueryLiveDataSet<T> extends LiveData<FirebaseElement<ListDa
         }
 
         @Override
-        public void onCancelled(DatabaseError databaseError) {
+        public void onCancelled(DatabaseError databaseError)
+        {
             setValue(new FirebaseElement<>(databaseError));
             removeListener();
             setListener();

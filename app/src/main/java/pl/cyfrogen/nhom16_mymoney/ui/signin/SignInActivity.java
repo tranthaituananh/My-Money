@@ -38,7 +38,8 @@ import pl.cyfrogen.nhom16_mymoney.firebase.models.User;
 import pl.cyfrogen.nhom16_mymoney.ui.main.MainActivity;
 
 
-public class SignInActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity
+{
     private static final int RC_SIGN_IN = 123;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
@@ -47,9 +48,9 @@ public class SignInActivity extends AppCompatActivity {
     private View progressView;
     private TextView privacyPolicyTextView;
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
         progressView = findViewById(R.id.progress_view);
@@ -61,9 +62,11 @@ public class SignInActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         signInButton = findViewById(R.id.sign_in_button);
-        signInButton.setOnClickListener(new View.OnClickListener() {
+        signInButton.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 signIn();
                 signInButton.setEnabled(false);
                 errorTextView.setText("");
@@ -89,23 +92,27 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onStart() {
+    public void onStart()
+    {
         super.onStart();
         showProgressView();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
 
-    private void signIn() {
+    private void signIn()
+    {
         showProgressView();
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
+        if (requestCode == RC_SIGN_IN)
+        {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
@@ -118,13 +125,16 @@ public class SignInActivity extends AppCompatActivity {
         }
     }
 
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+    private void firebaseAuthWithGoogle(GoogleSignInAccount acct)
+    {
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+                    public void onComplete(@NonNull Task<AuthResult> task)
+                    {
+                        if (task.isSuccessful())
+                        {
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
@@ -135,59 +145,67 @@ public class SignInActivity extends AppCompatActivity {
                 });
     }
 
-    private void updateUI(FirebaseUser currentUser) {
-        if (currentUser == null) {
+    private void updateUI(FirebaseUser currentUser)
+    {
+        if (currentUser == null)
+        {
             progressView.setVisibility(View.GONE);
             return;
         }
         showProgressView();
         final DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("users").child(currentUser.getUid());
-        userReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        userReference.addListenerForSingleValueEvent(new ValueEventListener()
+        {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            {
                 User user = dataSnapshot.getValue(User.class);
-                if (user != null) {
+                if (user != null)
+                {
                     startActivity(new Intent(SignInActivity.this, MainActivity.class));
                     finish();
                 } else {
                     runTransaction(userReference);
                 }
-
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError)
+            {
                 loginError("Firebase fetch user data failed.");
                 hideProgressView();
             }
         });
-
-
     }
 
-    private void loginError(String text) {
+    private void loginError(String text)
+    {
         errorTextView.setText(text);
         signInButton.setEnabled(true);
     }
 
-    private void runTransaction(DatabaseReference userReference) {
+    private void runTransaction(DatabaseReference userReference)
+    {
         showProgressView();
-        userReference.runTransaction(new Transaction.Handler() {
+        userReference.runTransaction(new Transaction.Handler()
+        {
             @Override
-            public Transaction.Result doTransaction(MutableData mutableData) {
+            public Transaction.Result doTransaction(MutableData mutableData)
+            {
                 User user = mutableData.getValue(User.class);
-                if (user == null) {
+                if (user == null)
+                {
                     mutableData.setValue(new User());
                     return Transaction.success(mutableData);
                 }
-
                 return Transaction.success(mutableData);
             }
 
             @Override
             public void onComplete(DatabaseError databaseError, boolean committed,
                                    DataSnapshot dataSnapshot) {
-                if (committed) {
+                if (committed)
+                {
                     startActivity(new Intent(SignInActivity.this, MainActivity.class));
                     finish();
                 } else {
@@ -198,18 +216,21 @@ public class SignInActivity extends AppCompatActivity {
         });
     }
 
-    private void showProgressView() {
+    private void showProgressView()
+    {
         progressView.setVisibility(View.VISIBLE);
 
     }
 
-    private void hideProgressView() {
+    private void hideProgressView()
+    {
         progressView.setVisibility(View.GONE);
 
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         moveTaskToBack(true);
     }
 

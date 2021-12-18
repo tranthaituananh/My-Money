@@ -3,7 +3,8 @@ package pl.cyfrogen.nhom16_mymoney.firebase.models;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 @IgnoreExtraProperties
-public class UserSettings {
+public class UserSettings
+{
     public static final int HOME_COUNTER_TYPE_COMPARE_INCOME_EXPENSE = 0;
     public static final int HOME_COUNTER_TYPE_SHOW_LIMIT = 1;
 
@@ -17,8 +18,6 @@ public class UserSettings {
     public int homeCounterType = UserSettings.HOME_COUNTER_TYPE_COMPARE_INCOME_EXPENSE;
     public int homeCounterPeriod = UserSettings.HOME_COUNTER_PERIOD_MONTHLY;
 
-    public UserSettings() {
-
-    }
+    public UserSettings(){}
 
 }

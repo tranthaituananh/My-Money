@@ -32,8 +32,8 @@ import pl.cyfrogen.nhom16_mymoney.models.Category;
 import pl.cyfrogen.nhom16_mymoney.ui.main.history.edit_entry.EditWalletEntryActivity;
 import pl.cyfrogen.nhom16_mymoney.util.CurrencyHelper;
 
-public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<WalletEntryHolder> {
-
+public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<WalletEntryHolder>
+{
     private final String uid;
     private final FragmentActivity fragmentActivity;
     private ListDataSet<WalletEntry> walletEntries;
@@ -41,23 +41,30 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
     private User user;
     private boolean firstUserSync = false;
 
-    public WalletEntriesRecyclerViewAdapter(FragmentActivity fragmentActivity, String uid) {
+    public WalletEntriesRecyclerViewAdapter(FragmentActivity fragmentActivity, String uid)
+    {
         this.fragmentActivity = fragmentActivity;
         this.uid = uid;
 
         UserProfileViewModelFactory.getModel(uid,fragmentActivity).observe(fragmentActivity, new FirebaseObserver<FirebaseElement<User>>() {
             @Override
-            public void onChanged(FirebaseElement<User> element) {
-                if(!element.hasNoError()) return;
+            public void onChanged(FirebaseElement<User> element)
+            {
+                if(!element.hasNoError())
+                {
+                    return;
+                }
                 WalletEntriesRecyclerViewAdapter.this.user = element.getElement();
-                if(!firstUserSync) {
+                if(!firstUserSync)
+                {
                     WalletEntriesHistoryViewModelFactory.getModel(uid, fragmentActivity).observe(fragmentActivity, new FirebaseObserver<FirebaseElement<ListDataSet<WalletEntry>>>() {
                         @Override
-                        public void onChanged(FirebaseElement<ListDataSet<WalletEntry>> element) {
-                            if(element.hasNoError()) {
+                        public void onChanged(FirebaseElement<ListDataSet<WalletEntry>> element)
+                        {
+                            if(element.hasNoError())
+                            {
                                 walletEntries = element.getElement();
                                 element.getElement().notifyRecycler(WalletEntriesRecyclerViewAdapter.this);
-
                             }
                         }
                     });
@@ -66,18 +73,19 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
                 firstUserSync = true;
             }
         });
-
     }
 
     @Override
-    public WalletEntryHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public WalletEntryHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
         LayoutInflater inflater = LayoutInflater.from(fragmentActivity);
         View view = inflater.inflate(R.layout.history_listview_row, parent, false);
         return new WalletEntryHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(WalletEntryHolder holder, int position) {
+    public void onBindViewHolder(WalletEntryHolder holder, int position)
+    {
         String id = walletEntries.getIDList().get(position);
         WalletEntry walletEntry = walletEntries.getList().get(position);
         Category category = CategoriesHelper.searchCategory(user, walletEntry.categoryID);
@@ -95,7 +103,8 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
 
         holder.view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public boolean onLongClick(View v)
+            {
                 createDeleteDialog(id, uid, walletEntry.balanceDifference, fragmentActivity);
                 return false;
             }
@@ -103,7 +112,8 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent intent = new Intent(fragmentActivity, EditWalletEntryActivity.class);
                 intent.putExtra("wallet-entry-id", id);
                 fragmentActivity.startActivity(intent);
@@ -112,16 +122,19 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         if (walletEntries == null) return 0;
         return walletEntries.getList().size();
     }
 
-    private void createDeleteDialog(String id, String uid, long balanceDifference, Context context) {
+    private void createDeleteDialog(String id, String uid, long balanceDifference, Context context)
+    {
         new AlertDialog.Builder(context)
                 .setMessage("Do you want to delete?")
                 .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
+                    public void onClick(DialogInterface dialog, int whichButton)
+                    {
                         FirebaseDatabase.getInstance().getReference()
                                 .child("wallet-entries").child(uid).child("default").child(id).removeValue();
                         user.wallet.sum -= balanceDifference;
@@ -131,7 +144,8 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
                 })
 
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(DialogInterface dialog, int which)
+                    {
                         dialog.dismiss();
                     }
                 })
@@ -139,9 +153,8 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
 
     }
 
-    public void setDateRange(Calendar calendarStart, Calendar calendarEnd) {
+    public void setDateRange(Calendar calendarStart, Calendar calendarEnd)
+    {
         WalletEntriesHistoryViewModelFactory.getModel(uid, fragmentActivity).setDateFilter(calendarStart, calendarEnd);
     }
-
-
 }

@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import pl.cyfrogen.nhom16_mymoney.R;
 
-public class WalletEntryHolder extends RecyclerView.ViewHolder {
-
+public class WalletEntryHolder extends RecyclerView.ViewHolder
+{
     final TextView dateTextView;
     final TextView moneyTextView;
     final TextView categoryTextView;
@@ -16,7 +16,8 @@ public class WalletEntryHolder extends RecyclerView.ViewHolder {
     final ImageView iconImageView;
     public View view;
 
-    public WalletEntryHolder(View itemView) {
+    public WalletEntryHolder(View itemView)
+    {
         super(itemView);
         this.view = itemView;
         moneyTextView = itemView.findViewById(R.id.money_textview);

@@ -14,8 +14,8 @@ import java.util.List;
 import pl.cyfrogen.nhom16_mymoney.R;
 import pl.cyfrogen.nhom16_mymoney.models.Category;
 
-public class EntryCategoriesAdapter extends ArrayAdapter<String> {
-
+public class EntryCategoriesAdapter extends ArrayAdapter<String>
+{
     private final List<Category> items;
     private final Context context;
 
@@ -33,11 +33,13 @@ public class EntryCategoriesAdapter extends ArrayAdapter<String> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
         return createItemView(position, convertView, parent);
     }
 
-    private View createItemView(int position, View convertView, ViewGroup parent) {
+    private View createItemView(int position, View convertView, ViewGroup parent)
+    {
         final View view = LayoutInflater.from(context).inflate(R.layout.new_entry_type_spinner_row, parent, false);
 
         TextView textView = view.findViewById(R.id.item_category);
@@ -50,11 +52,12 @@ public class EntryCategoriesAdapter extends ArrayAdapter<String> {
         return view;
     }
 
-    public int getItemIndex(String categoryID) {
-        for(int i = 0; i < items.size(); i++) {
+    public int getItemIndex(String categoryID)
+    {
+        for(int i = 0; i < items.size(); i++)
+        {
             if(items.get(i).getCategoryID().equals(categoryID)) return i;
         }
         return -1;
     }
 }
-

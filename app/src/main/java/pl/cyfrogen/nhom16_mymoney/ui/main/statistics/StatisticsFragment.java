@@ -47,8 +47,8 @@ import pl.cyfrogen.nhom16_mymoney.models.Category;
 import pl.cyfrogen.nhom16_mymoney.ui.options.OptionsActivity;
 import pl.cyfrogen.nhom16_mymoney.util.CurrencyHelper;
 
-
-public class StatisticsFragment extends BaseFragment {
+public class StatisticsFragment extends BaseFragment
+{
     public static final CharSequence TITLE = "Statistics";
 
     private Menu menu;
@@ -64,27 +64,28 @@ public class StatisticsFragment extends BaseFragment {
     private TextView incomesTextView;
     private TextView expensesTextView;
 
-    public static StatisticsFragment newInstance() {
-
+    public static StatisticsFragment newInstance()
+    {
         return new StatisticsFragment();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
+    {
         return inflater.inflate(R.layout.fragment_statistics, container, false);
-
-
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
+    {
         pieChart = view.findViewById(R.id.pie_chart);
         dividerTextView = view.findViewById(R.id.divider_textview);
         View incomesExpensesView = view.findViewById(R.id.incomes_expenses_view);
@@ -98,22 +99,24 @@ public class StatisticsFragment extends BaseFragment {
         favoriteListView.setAdapter(adapter);
 
         TopWalletEntriesStatisticsViewModelFactory.getModel(getUid(), getActivity()).observe(this, new FirebaseObserver<FirebaseElement<ListDataSet<WalletEntry>>>() {
-
             @Override
-            public void onChanged(FirebaseElement<ListDataSet<WalletEntry>> firebaseElement) {
-                if (firebaseElement.hasNoError()) {
+            public void onChanged(FirebaseElement<ListDataSet<WalletEntry>> firebaseElement)
+            {
+                if (firebaseElement.hasNoError())
+                {
                     StatisticsFragment.this.walletEntryListDataSet = firebaseElement.getElement();
                     dataUpdated();
                 }
             }
-
         });
 
 
         UserProfileViewModelFactory.getModel(getUid(), getActivity()).observe(this, new FirebaseObserver<FirebaseElement<User>>() {
             @Override
-            public void onChanged(FirebaseElement<User> firebaseElement) {
-                if (firebaseElement.hasNoError()) {
+            public void onChanged(FirebaseElement<User> firebaseElement)
+            {
+                if (firebaseElement.hasNoError())
+                {
                     StatisticsFragment.this.user = firebaseElement.getElement();
 
                     calendarStart = CalendarHelper.getUserPeriodStartDate(user);
@@ -122,24 +125,26 @@ public class StatisticsFragment extends BaseFragment {
                     updateCalendarIcon(false);
                     calendarUpdated();
                     dataUpdated();
-
                 }
             }
         });
 
     }
 
-
-    private void dataUpdated() {
-        if (calendarStart != null && calendarEnd != null && walletEntryListDataSet != null) {
+    private void dataUpdated()
+    {
+        if (calendarStart != null && calendarEnd != null && walletEntryListDataSet != null)
+        {
             List<WalletEntry> entryList = new ArrayList<>(walletEntryListDataSet.getList());
 
             long expensesSumInDateRange = 0;
             long incomesSumInDateRange = 0;
 
             HashMap<Category, Long> categoryModels = new HashMap<>();
-            for (WalletEntry walletEntry : entryList) {
-                if (walletEntry.balanceDifference > 0) {
+            for (WalletEntry walletEntry : entryList)
+            {
+                if (walletEntry.balanceDifference > 0)
+                {
                     incomesSumInDateRange += walletEntry.balanceDifference;
                     continue;
                 }
@@ -149,7 +154,6 @@ public class StatisticsFragment extends BaseFragment {
                     categoryModels.put(category, categoryModels.get(category) + walletEntry.balanceDifference);
                 else
                     categoryModels.put(category, walletEntry.balanceDifference);
-
             }
 
             categoryModelsHome.clear();
@@ -157,12 +161,14 @@ public class StatisticsFragment extends BaseFragment {
             ArrayList<PieEntry> pieEntries = new ArrayList<>();
             ArrayList<Integer> pieColors = new ArrayList<>();
 
-            for (Map.Entry<Category, Long> categoryModel : categoryModels.entrySet()) {
+            for (Map.Entry<Category, Long> categoryModel : categoryModels.entrySet())
+            {
                 float percentage = categoryModel.getValue() / (float) expensesSumInDateRange;
                 final float minPercentageToShowLabelOnChart = 0.1f;
                 categoryModelsHome.add(new TopCategoryStatisticsListViewModel(categoryModel.getKey(), categoryModel.getKey().getCategoryVisibleName(getContext()),
                         user.currency, categoryModel.getValue(), percentage));
-                if (percentage > minPercentageToShowLabelOnChart) {
+                if (percentage > minPercentageToShowLabelOnChart)
+                {
                     Drawable drawable = getContext().getDrawable(categoryModel.getKey().getIconResourceID());
                     drawable.setTint(Color.parseColor("#FFFFFF"));
                     pieEntries.add(new PieEntry(-categoryModel.getValue(), drawable));
@@ -215,24 +221,31 @@ public class StatisticsFragment extends BaseFragment {
 
             float progress = 100 * incomesSumInDateRange / (float) (incomesSumInDateRange - expensesSumInDateRange);
             incomesExpensesProgressBar.setProgress((int) progress);
-
         }
-
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
         inflater.inflate(R.menu.statistics_fragment_menu, menu);
         this.menu = menu;
         updateCalendarIcon(false);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    private void updateCalendarIcon(boolean updatedFromUI) {
-        if (menu == null) return;
+    private void updateCalendarIcon(boolean updatedFromUI)
+    {
+        if (menu == null)
+        {
+            return;
+        }
         MenuItem calendarIcon = menu.findItem(R.id.action_date_range);
-        if (calendarIcon == null) return;
-        if (updatedFromUI) {
+        if (calendarIcon == null)
+        {
+            return;
+        }
+        if (updatedFromUI)
+        {
             calendarIcon.setIcon(ContextCompat.getDrawable(getContext(), R.drawable.icon_calendar_active));
         } else {
             calendarIcon.setIcon(ContextCompat.getDrawable(getContext(), R.drawable.icon_calendar));
@@ -240,10 +253,11 @@ public class StatisticsFragment extends BaseFragment {
 
     }
 
-
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
             case R.id.action_date_range:
                 showSelectDateRangeDialog();
                 return true;
@@ -254,10 +268,12 @@ public class StatisticsFragment extends BaseFragment {
         }
     }
 
-    private void showSelectDateRangeDialog() {
+    private void showSelectDateRangeDialog()
+    {
         SmoothDateRangePickerFragment datePicker = SmoothDateRangePickerFragment.newInstance(new SmoothDateRangePickerFragment.OnDateRangeSetListener() {
             @Override
-            public void onDateRangeSet(SmoothDateRangePickerFragment view, int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd) {
+            public void onDateRangeSet(SmoothDateRangePickerFragment view, int yearStart, int monthStart, int dayStart, int yearEnd, int monthEnd, int dayEnd)
+            {
                 calendarStart = Calendar.getInstance();
                 calendarStart.set(yearStart, monthStart, dayStart);
                 calendarStart.set(Calendar.HOUR_OF_DAY, 0);
@@ -274,14 +290,10 @@ public class StatisticsFragment extends BaseFragment {
             }
         });
         datePicker.show(getActivity().getFragmentManager(), "TAG");
-        //todo library doesn't respect other method than deprecated
     }
 
-
-    private void calendarUpdated() {
+    private void calendarUpdated()
+    {
         TopWalletEntriesStatisticsViewModelFactory.getModel(getUid(), getActivity()).setDateFilter(calendarStart, calendarEnd);
-
     }
-
-
 }

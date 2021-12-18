@@ -16,26 +16,24 @@ import java.util.List;
 import pl.cyfrogen.nhom16_mymoney.R;
 import pl.cyfrogen.nhom16_mymoney.models.Category;
 
-public class CustomCategoriesAdapter extends ArrayAdapter<Category> implements View.OnClickListener {
-
+public class CustomCategoriesAdapter extends ArrayAdapter<Category> implements View.OnClickListener
+{
     private final Activity activity;
     Context context;
 
-    public CustomCategoriesAdapter(Activity activity, List<Category> data, Context context) {
+    public CustomCategoriesAdapter(Activity activity, List<Category> data, Context context)
+    {
         super(context, R.layout.favorites_listview_row, data);
         this.context = context;
         this.activity = activity;
-
     }
 
     @Override
-    public void onClick(View v) {
-
-    }
-
+    public void onClick(View v) {}
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
         View listItem = convertView;
         if (listItem == null)
             listItem = LayoutInflater.from(context).inflate(R.layout.custom_categories_listview_row, parent, false);
@@ -53,7 +51,8 @@ public class CustomCategoriesAdapter extends ArrayAdapter<Category> implements V
 
         listItem.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent intent = new Intent(activity, EditCustomCategoryActivity.class);
                 intent.putExtra("category-id", category.getCategoryID());
                 intent.putExtra("category-name", category.getCategoryVisibleName(getContext()));
@@ -63,6 +62,4 @@ public class CustomCategoriesAdapter extends ArrayAdapter<Category> implements V
         });
         return listItem;
     }
-
-
 }

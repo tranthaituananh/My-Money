@@ -57,27 +57,28 @@ public class HomeFragment extends BaseFragment {
     private TextView gaugeRightLine2TextView;
     private TextView gaugeBalanceLeftTextView;
 
-    public static HomeFragment newInstance() {
-
+    public static HomeFragment newInstance()
+    {
         return new HomeFragment();
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState)
+    {
         return inflater.inflate(R.layout.fragment_home, container, false);
-
-
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState)
+    {
         categoryModelsHome = new ArrayList<>();
 
         gauge = view.findViewById(R.id.gauge);
@@ -92,28 +93,28 @@ public class HomeFragment extends BaseFragment {
         gaugeRightLine2TextView = view.findViewById(R.id.gauge_right_line2_textview);
         gaugeBalanceLeftTextView = view.findViewById(R.id.left_balance_textview);
 
-
         ListView favoriteListView = view.findViewById(R.id.favourite_categories_list_view);
         adapter = new TopCategoriesAdapter(categoryModelsHome, getActivity().getApplicationContext());
         favoriteListView.setAdapter(adapter);
 
-
         TopWalletEntriesViewModelFactory.getModel(getUid(), getActivity()).observe(this, new FirebaseObserver<FirebaseElement<ListDataSet<WalletEntry>>>() {
-
             @Override
-            public void onChanged(FirebaseElement<ListDataSet<WalletEntry>> firebaseElement) {
-                if (firebaseElement.hasNoError()) {
+            public void onChanged(FirebaseElement<ListDataSet<WalletEntry>> firebaseElement)
+            {
+                if (firebaseElement.hasNoError())
+                {
                     HomeFragment.this.walletEntryListDataSet = firebaseElement.getElement();
                     dataUpdated();
                 }
             }
         });
 
-
         UserProfileViewModelFactory.getModel(getUid(), getActivity()).observe(this, new FirebaseObserver<FirebaseElement<User>>() {
             @Override
-            public void onChanged(FirebaseElement<User> firebaseElement) {
-                if (firebaseElement.hasNoError()) {
+            public void onChanged(FirebaseElement<User> firebaseElement)
+            {
+                if (firebaseElement.hasNoError())
+                {
                     HomeFragment.this.user = firebaseElement.getElement();
                     dataUpdated();
 
@@ -123,20 +124,20 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         });
-
-
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater)
+    {
         inflater.inflate(R.menu.home_fragment_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
             case R.id.action_options:
                 startActivity(new Intent(getActivity(), OptionsActivity.class));
             default:
@@ -144,7 +145,8 @@ public class HomeFragment extends BaseFragment {
         }
     }
 
-    private void dataUpdated() {
+    private void dataUpdated()
+    {
         if (user == null || walletEntryListDataSet == null) return;
 
         List<WalletEntry> entryList = new ArrayList<>(walletEntryListDataSet.getList());
@@ -154,43 +156,47 @@ public class HomeFragment extends BaseFragment {
 
         DateFormat dateFormat = new SimpleDateFormat("dd-MM");
 
-
         long expensesSumInDateRange = 0;
         long incomesSumInDateRange = 0;
 
         HashMap<Category, Long> categoryModels = new HashMap<>();
-        for (WalletEntry walletEntry : entryList) {
-            if (walletEntry.balanceDifference > 0) {
+        for (WalletEntry walletEntry : entryList)
+        {
+            if (walletEntry.balanceDifference > 0)
+            {
                 incomesSumInDateRange += walletEntry.balanceDifference;
                 continue;
             }
             expensesSumInDateRange += walletEntry.balanceDifference;
             Category category = CategoriesHelper.searchCategory(user, walletEntry.categoryID);
             if (categoryModels.get(category) != null)
+            {
                 categoryModels.put(category, categoryModels.get(category) + walletEntry.balanceDifference);
-            else
+            } else {
                 categoryModels.put(category, walletEntry.balanceDifference);
-
+            }
         }
 
         categoryModelsHome.clear();
-        for (Map.Entry<Category, Long> categoryModel : categoryModels.entrySet()) {
+        for (Map.Entry<Category, Long> categoryModel : categoryModels.entrySet())
+        {
             categoryModelsHome.add(new TopCategoryListViewModel(categoryModel.getKey(), categoryModel.getKey().getCategoryVisibleName(getContext()),
                     user.currency, categoryModel.getValue()));
         }
 
         Collections.sort(categoryModelsHome, new Comparator<TopCategoryListViewModel>() {
             @Override
-            public int compare(TopCategoryListViewModel o1, TopCategoryListViewModel o2) {
+            public int compare(TopCategoryListViewModel o1, TopCategoryListViewModel o2)
+            {
                 return Long.compare(o1.getMoney(), o2.getMoney());
             }
         });
 
-
         adapter.notifyDataSetChanged();
         totalBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, user.wallet.sum));
 
-        if (user.userSettings.homeCounterType == UserSettings.HOME_COUNTER_TYPE_SHOW_LIMIT) {
+        if (user.userSettings.homeCounterType == UserSettings.HOME_COUNTER_TYPE_SHOW_LIMIT)
+        {
             gaugeLeftBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, 0));
             gaugeLeftLine1TextView.setText(dateFormat.format(startDate.getTime()));
             gaugeLeftLine2TextView.setVisibility(View.INVISIBLE);
@@ -208,8 +214,6 @@ public class HomeFragment extends BaseFragment {
             if (percentage > 100) percentage = 100;
             gauge.setValue(percentage);
             gaugeBalanceLeftTextView.setText(CurrencyHelper.formatCurrency(user.currency, limit - expenses) + " left");
-
-
         } else {
             gaugeLeftBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, incomesSumInDateRange));
             gaugeLeftLine1TextView.setText("Incomes");
@@ -228,5 +232,4 @@ public class HomeFragment extends BaseFragment {
                     dateFormat.format(endDate.getTime()));
         }
     }
-
 }

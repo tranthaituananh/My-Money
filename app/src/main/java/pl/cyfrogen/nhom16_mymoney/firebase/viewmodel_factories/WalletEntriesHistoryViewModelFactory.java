@@ -12,38 +12,45 @@ import java.util.Calendar;
 
 import pl.cyfrogen.nhom16_mymoney.firebase.viewmodels.WalletEntriesBaseViewModel;
 
-public class WalletEntriesHistoryViewModelFactory implements ViewModelProvider.Factory {
+public class WalletEntriesHistoryViewModelFactory implements ViewModelProvider.Factory
+{
     private String uid;
 
-    WalletEntriesHistoryViewModelFactory(String uid) {
+    WalletEntriesHistoryViewModelFactory(String uid)
+    {
         this.uid = uid;
-
     }
 
     @Override
-    public <T extends ViewModel> T create(Class<T> modelClass) {
+    public <T extends ViewModel> T create(Class<T> modelClass)
+    {
         return (T) new Model(uid);
     }
 
-    public static Model getModel(String uid, FragmentActivity activity) {
+    public static Model getModel(String uid, FragmentActivity activity)
+    {
         return ViewModelProviders.of(activity, new WalletEntriesHistoryViewModelFactory(uid)).get(Model.class);
     }
 
-    public static class Model extends WalletEntriesBaseViewModel {
+    public static class Model extends WalletEntriesBaseViewModel
+    {
 
         private Calendar endDate;
         private Calendar startDate;
 
-        public Model(String uid) {
+        public Model(String uid)
+        {
             super(uid, getDefaultQuery(uid));
         }
 
-        private static Query getDefaultQuery(String uid) {
+        private static Query getDefaultQuery(String uid)
+        {
             return FirebaseDatabase.getInstance().getReference()
                     .child("wallet-entries").child(uid).child("default").orderByChild("timestamp").limitToFirst(500);
         }
 
-        public void setDateFilter(Calendar startDate, Calendar endDate) {
+        public void setDateFilter(Calendar startDate, Calendar endDate)
+        {
             this.startDate = startDate;
             this.endDate = endDate;
             if (startDate != null && endDate != null) {
@@ -55,15 +62,18 @@ public class WalletEntriesHistoryViewModelFactory implements ViewModelProvider.F
             }
         }
 
-        public boolean hasDateSet() {
+        public boolean hasDateSet()
+        {
             return startDate != null && endDate != null;
         }
 
-        public Calendar getStartDate() {
+        public Calendar getStartDate()
+        {
             return startDate;
         }
 
-        public Calendar getEndDate() {
+        public Calendar getEndDate()
+        {
             return endDate;
         }
     }

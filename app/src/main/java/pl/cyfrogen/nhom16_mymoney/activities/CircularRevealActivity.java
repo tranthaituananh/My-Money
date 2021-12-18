@@ -15,7 +15,8 @@ import pl.cyfrogen.nhom16_mymoney.base.BaseActivity;
 import pl.cyfrogen.nhom16_mymoney.libraries.GUIUtils;
 import pl.cyfrogen.nhom16_mymoney.libraries.OnRevealAnimationListener;
 
-public abstract class CircularRevealActivity extends BaseActivity {
+public abstract class CircularRevealActivity extends BaseActivity
+{
     private final int layoutID;
     private final int fabID;
     private final int container1ID;
@@ -24,7 +25,8 @@ public abstract class CircularRevealActivity extends BaseActivity {
     private View container1;
     private View container2;
 
-    public CircularRevealActivity(int layoutID, int fabID, int container1ID, int container2ID) {
+    public CircularRevealActivity(int layoutID, int fabID, int container1ID, int container2ID)
+    {
         this.layoutID = layoutID;
         this.fabID = fabID;
         this.container1ID = container1ID;
@@ -33,7 +35,8 @@ public abstract class CircularRevealActivity extends BaseActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(layoutID);
 
@@ -41,7 +44,8 @@ public abstract class CircularRevealActivity extends BaseActivity {
         container1 = findViewById(container1ID);
         container2 = findViewById(container2ID);
         container2.setVisibility(View.INVISIBLE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+        {
             setupEnterAnimation();
             setupExitAnimation();
         }
@@ -50,42 +54,35 @@ public abstract class CircularRevealActivity extends BaseActivity {
 
     public abstract void onInitialized(Bundle savedInstanceState);
 
-
-    private void setupEnterAnimation() {
+    private void setupEnterAnimation()
+    {
         Transition transition = TransitionInflater.from(this)
                 .inflateTransition(R.transition.changebounds_with_arcmotion);
         getWindow().setSharedElementEnterTransition(transition);
         transition.addListener(new Transition.TransitionListener() {
             @Override
-            public void onTransitionStart(Transition transition) {
-
-            }
+            public void onTransitionStart(Transition transition) {}
 
             @Override
-            public void onTransitionEnd(Transition transition) {
+            public void onTransitionEnd(Transition transition)
+            {
                 transition.removeListener(this);
                 animateRevealShow(container1);
             }
 
             @Override
-            public void onTransitionCancel(Transition transition) {
-
-            }
+            public void onTransitionCancel(Transition transition) {}
 
             @Override
-            public void onTransitionPause(Transition transition) {
-
-            }
+            public void onTransitionPause(Transition transition) {}
 
             @Override
-            public void onTransitionResume(Transition transition) {
-
-            }
+            public void onTransitionResume(Transition transition) {}
         });
     }
 
-
-    private void animateRevealShow(final View viewRoot) {
+    private void animateRevealShow(final View viewRoot)
+    {
         int cx = (viewRoot.getLeft() + viewRoot.getRight()) / 2;
         int cy = (viewRoot.getTop() + viewRoot.getBottom()) / 2;
         GUIUtils.animateRevealShow(this, container1, fab.getWidth() / 2, R.color.colorPrimary,
@@ -102,7 +99,8 @@ public abstract class CircularRevealActivity extends BaseActivity {
                 });
     }
 
-    private void initViews() {
+    private void initViews()
+    {
         new Handler(Looper.getMainLooper()).post(() -> {
             Animation animation = AnimationUtils.loadAnimation(this, android.R.anim.fade_in);
             animation.setDuration(600);
@@ -111,13 +109,14 @@ public abstract class CircularRevealActivity extends BaseActivity {
         });
     }
 
-
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         finishWithAnimation();
     }
 
-    protected void finishWithAnimation() {
+    protected void finishWithAnimation()
+    {
         Animation animation = AnimationUtils.loadAnimation(this, android.R.anim.fade_out);
         animation.setDuration(200);
         container2.startAnimation(animation);
@@ -131,61 +130,54 @@ public abstract class CircularRevealActivity extends BaseActivity {
             }
 
             @Override
-            public void onAnimationEnd(Animation arg0) {
+            public void onAnimationEnd(Animation arg0)
+            {
                 container2.setVisibility(View.INVISIBLE);
                 GUIUtils.animateRevealHide(getApplicationContext(), container1, R.color.colorPrimary, fab.getWidth() / 2,
                         new OnRevealAnimationListener() {
                             @Override
-                            public void onRevealHide() {
+                            public void onRevealHide()
+                            {
                                 backPressed();
 
                             }
 
                             @Override
-                            public void onRevealShow() {
-
-                            }
+                            public void onRevealShow() {}
                         });
             }
         });
 
     }
 
-
-    private void backPressed() {
+    private void backPressed()
+    {
         super.onBackPressed();
     }
 
-    private void setupExitAnimation() {
+    private void setupExitAnimation()
+    {
         Transition transition = TransitionInflater.from(this)
                 .inflateTransition(R.transition.changebounds_with_arcmotion);
         getWindow().setSharedElementReturnTransition(transition);
         transition.addListener(new Transition.TransitionListener() {
             @Override
-            public void onTransitionStart(Transition transition) {
-
-            }
+            public void onTransitionStart(Transition transition) {}
 
             @Override
-            public void onTransitionEnd(Transition transition) {
+            public void onTransitionEnd(Transition transition)
+            {
                 transition.removeListener(this);
             }
 
             @Override
-            public void onTransitionCancel(Transition transition) {
-
-            }
+            public void onTransitionCancel(Transition transition) {}
 
             @Override
-            public void onTransitionPause(Transition transition) {
-
-            }
+            public void onTransitionPause(Transition transition) {}
 
             @Override
-            public void onTransitionResume(Transition transition) {
-
-            }
+            public void onTransitionResume(Transition transition) {}
         });
-
     }
 }

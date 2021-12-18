@@ -12,7 +12,5 @@ public class User {
     public Wallet wallet = new Wallet();
     public Map<String, WalletEntryCategory> customCategories = new HashMap<>();
 
-    public User() {
-
-    }
+    public User() {}
 }

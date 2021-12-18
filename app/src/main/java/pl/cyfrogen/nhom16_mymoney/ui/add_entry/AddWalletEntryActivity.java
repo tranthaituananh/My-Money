@@ -35,8 +35,8 @@ import pl.cyfrogen.nhom16_mymoney.util.CurrencyHelper;
 import pl.cyfrogen.nhom16_mymoney.R;
 import pl.cyfrogen.nhom16_mymoney.firebase.models.WalletEntry;
 
-public class AddWalletEntryActivity extends CircularRevealActivity {
-
+public class AddWalletEntryActivity extends CircularRevealActivity
+{
     private Spinner selectCategorySpinner;
     private TextInputEditText selectNameEditText;
     private Calendar chosenDate;
@@ -48,12 +48,14 @@ public class AddWalletEntryActivity extends CircularRevealActivity {
     private TextInputLayout selectAmountInputLayout;
     private TextInputLayout selectNameInputLayout;
 
-    public AddWalletEntryActivity() {
+    public AddWalletEntryActivity()
+    {
         super(R.layout.activity_add_wallet_entry, R.id.activity_contact_fab, R.id.root_layout, R.id.root_layout2);
     }
 
     @Override
-    public void onInitialized(Bundle savedInstanceState) {
+    public void onInitialized(Bundle savedInstanceState)
+    {
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Add wallet entry");
@@ -71,14 +73,15 @@ public class AddWalletEntryActivity extends CircularRevealActivity {
 
         UserProfileViewModelFactory.getModel(getUid(), this).observe(this, new FirebaseObserver<FirebaseElement<User>>() {
             @Override
-            public void onChanged(FirebaseElement<User> firebaseElement) {
-                if (firebaseElement.hasNoError()) {
+            public void onChanged(FirebaseElement<User> firebaseElement)
+            {
+                if (firebaseElement.hasNoError())
+                {
                     user = firebaseElement.getElement();
                     dateUpdated();
                 }
             }
         });
-
 
         EntryTypesAdapter typeAdapter = new EntryTypesAdapter(this,
                 R.layout.new_entry_type_spinner_row, Arrays.asList(
@@ -96,17 +99,19 @@ public class AddWalletEntryActivity extends CircularRevealActivity {
                 pickDate();
             }
         });
+
         chooseTimeTextView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 pickTime();
             }
         });
 
-
         addEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 try {
                     addToWallet(((selectTypeSpinner.getSelectedItemPosition() * 2) - 1) *
                                     CurrencyHelper.convertAmountStringToLong(selectAmountEditText.getText().toString()),
@@ -120,11 +125,10 @@ public class AddWalletEntryActivity extends CircularRevealActivity {
                 }
             }
         });
-
-
     }
 
-    private void dateUpdated() {
+    private void dateUpdated()
+    {
         if (user == null) return;
 
         final List<Category> categories = CategoriesHelper.getCategories(user);
@@ -134,11 +138,10 @@ public class AddWalletEntryActivity extends CircularRevealActivity {
         selectCategorySpinner.setAdapter(categoryAdapter);
 
         CurrencyHelper.setupAmountEditText(selectAmountEditText, user);
-
     }
 
-
-    private void updateDate() {
+    private void updateDate()
+    {
         SimpleDateFormat dataFormatter = new SimpleDateFormat("yyyy-MM-dd");
         chooseDayTextView.setText(dataFormatter.format(chosenDate.getTime()));
 
@@ -146,12 +149,15 @@ public class AddWalletEntryActivity extends CircularRevealActivity {
         chooseTimeTextView.setText(dataFormatter2.format(chosenDate.getTime()));
     }
 
-    public void addToWallet(long balanceDifference, Date entryDate, String entryCategory, String entryName) throws ZeroBalanceDifferenceException, EmptyStringException {
-        if (balanceDifference == 0) {
+    public void addToWallet(long balanceDifference, Date entryDate, String entryCategory, String entryName) throws ZeroBalanceDifferenceException, EmptyStringException
+    {
+        if (balanceDifference == 0)
+        {
             throw new ZeroBalanceDifferenceException("Balance difference should not be 0");
         }
 
-        if (entryName == null || entryName.length() == 0) {
+        if (entryName == null || entryName.length() == 0)
+        {
             throw new EmptyStringException("Entry name length should be > 0");
         }
 
@@ -162,19 +168,21 @@ public class AddWalletEntryActivity extends CircularRevealActivity {
         finishWithAnimation();
     }
 
-    private void pickTime() {
+    private void pickTime()
+    {
         new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute)
+            {
                 chosenDate.set(Calendar.HOUR_OF_DAY, hourOfDay);
                 chosenDate.set(Calendar.MINUTE, minute);
                 updateDate();
-
             }
         }, chosenDate.get(Calendar.HOUR_OF_DAY), chosenDate.get(Calendar.MINUTE), true).show();
     }
 
-    private void pickDate() {
+    private void pickDate()
+    {
         final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
@@ -183,19 +191,18 @@ public class AddWalletEntryActivity extends CircularRevealActivity {
         new DatePickerDialog(this,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+                    {
                         chosenDate.set(year, monthOfYear, dayOfMonth);
                         updateDate();
-
                     }
                 }, year, month, day).show();
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
         onBackPressed();
         return true;
     }
-
-
 }

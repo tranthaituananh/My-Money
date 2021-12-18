@@ -16,13 +16,13 @@ import pl.cyfrogen.nhom16_mymoney.R;
 import pl.cyfrogen.nhom16_mymoney.models.Category;
 import pl.cyfrogen.nhom16_mymoney.util.CurrencyHelper;
 
-public class TopCategoriesStatisticsAdapter extends ArrayAdapter<TopCategoryStatisticsListViewModel> implements View.OnClickListener {
-
+public class TopCategoriesStatisticsAdapter extends ArrayAdapter<TopCategoryStatisticsListViewModel> implements View.OnClickListener
+{
     private ArrayList<TopCategoryStatisticsListViewModel> dataSet;
     Context context;
 
-
-    public TopCategoriesStatisticsAdapter(ArrayList<TopCategoryStatisticsListViewModel> data, Context context) {
+    public TopCategoriesStatisticsAdapter(ArrayList<TopCategoryStatisticsListViewModel> data, Context context)
+    {
         super(context, R.layout.top_categories_statistics_listview_row, data);
         this.dataSet = data;
         this.context = context;
@@ -30,13 +30,11 @@ public class TopCategoriesStatisticsAdapter extends ArrayAdapter<TopCategoryStat
     }
 
     @Override
-    public void onClick(View v) {
-
-    }
-
+    public void onClick(View v) {}
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
         View listItem = convertView;
         if (listItem == null)
             listItem = LayoutInflater.from(context).inflate(R.layout.top_categories_statistics_listview_row, parent, false);

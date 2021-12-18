@@ -18,12 +18,14 @@ import android.view.View;
 import pl.cyfrogen.nhom16_mymoney.R;
 import pl.cyfrogen.nhom16_mymoney.ui.add_entry.AddWalletEntryActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     private BroadcastReceiver receiver;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -31,14 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         FloatingActionButton addEntryButton = findViewById(R.id.add_wallet_entry_fab);
-        addEntryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ActivityOptions options =
-                        ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, addEntryButton, addEntryButton.getTransitionName());
-                startActivity(new Intent(MainActivity.this, AddWalletEntryActivity.class), options.toBundle());
+        addEntryButton.setOnClickListener(v -> {
+            ActivityOptions options =
+                    ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, addEntryButton, addEntryButton.getTransitionName());
+            startActivity(new Intent(MainActivity.this, AddWalletEntryActivity.class), options.toBundle());
 
-            }
         });
 
         ViewPager viewPager = findViewById(R.id.pager);
@@ -46,34 +45,32 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int i, float v, int i1) {
-            }
+            public void onPageScrolled(int i, float v, int i1) {}
 
             @Override
-            public void onPageSelected(int i) {
+            public void onPageSelected(int i)
+            {
                 ((AppBarLayout) toolbar.getParent()).setExpanded(true, true);
             }
 
             @Override
-            public void onPageScrollStateChanged(int i) {
-
-            }
+            public void onPageScrollStateChanged(int i) {}
         });
 
         TabLayout tabLayout = findViewById(R.id.tab);
         tabLayout.setupWithViewPager(viewPager);
-
-
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume()
+    {
         super.onResume();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("pl.cyfrogen.budget.ACTION_LOGOUT");
         receiver = new BroadcastReceiver() {
             @Override
-            public void onReceive(Context context, Intent intent) {
+            public void onReceive(Context context, Intent intent)
+            {
                 finish();
             }
         };
@@ -81,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause() {
+    protected void onPause()
+    {
         super.onPause();
         unregisterReceiver(receiver);
     }

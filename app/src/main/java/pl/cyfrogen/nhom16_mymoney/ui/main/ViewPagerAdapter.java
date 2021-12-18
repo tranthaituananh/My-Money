@@ -1,6 +1,5 @@
 package pl.cyfrogen.nhom16_mymoney.ui.main;
 
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -9,18 +8,21 @@ import pl.cyfrogen.nhom16_mymoney.ui.main.statistics.StatisticsFragment;
 import pl.cyfrogen.nhom16_mymoney.ui.main.history.HistoryFragment;
 import pl.cyfrogen.nhom16_mymoney.ui.main.home.HomeFragment;
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+public class ViewPagerAdapter extends FragmentStatePagerAdapter
+{
+    private static final int TAB_COUNT = 3;
 
-    private static int TAB_COUNT = 3;
-
-    public ViewPagerAdapter(FragmentManager fm) {
+    public ViewPagerAdapter(FragmentManager fm)
+    {
         super(fm);
     }
 
     @Override
-    public Fragment getItem(int position) {
+    public Fragment getItem(int position)
+    {
 
-        switch (position) {
+        switch (position)
+        {
             case 0:
                 return HomeFragment.newInstance();
             case 1:
@@ -32,13 +34,16 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         return TAB_COUNT;
     }
 
     @Override
-    public CharSequence getPageTitle(int position) {
-        switch (position) {
+    public CharSequence getPageTitle(int position)
+    {
+        switch (position)
+        {
             case 0:
                 return HomeFragment.TITLE;
 

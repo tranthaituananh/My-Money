@@ -11,38 +11,45 @@ import java.util.Calendar;
 
 import pl.cyfrogen.nhom16_mymoney.firebase.viewmodels.WalletEntriesBaseViewModel;
 
-public class TopWalletEntriesStatisticsViewModelFactory implements ViewModelProvider.Factory {
+public class TopWalletEntriesStatisticsViewModelFactory implements ViewModelProvider.Factory
+{
     private Calendar endDate;
     private Calendar startDate;
     private String uid;
 
-    TopWalletEntriesStatisticsViewModelFactory(String uid) {
+    TopWalletEntriesStatisticsViewModelFactory(String uid)
+    {
         this.uid = uid;
-
-
     }
-    public void setDate(Calendar startDate, Calendar endDate){
+
+    public void setDate(Calendar startDate, Calendar endDate)
+    {
         this.startDate=startDate;
         this.endDate=endDate;
     }
 
     @Override
-    public <T extends ViewModel> T create(Class<T> modelClass) {
+    public <T extends ViewModel> T create(Class<T> modelClass)
+    {
         return (T) new Model(uid);
     }
 
-    public static Model getModel(String uid, FragmentActivity activity) {
+    public static Model getModel(String uid, FragmentActivity activity)
+    {
         return ViewModelProviders.of(activity, new TopWalletEntriesStatisticsViewModelFactory(uid)).get(Model.class);
     }
 
-    public static class Model extends WalletEntriesBaseViewModel {
+    public static class Model extends WalletEntriesBaseViewModel
+    {
 
-        public Model(String uid) {
+        public Model(String uid)
+        {
             super(uid, FirebaseDatabase.getInstance().getReference()
                     .child("wallet-entries").child(uid).child("default").orderByChild("timestamp"));
         }
 
-        public void setDateFilter(Calendar startDate, Calendar endDate) {
+        public void setDateFilter(Calendar startDate, Calendar endDate)
+        {
             liveData.setQuery(FirebaseDatabase.getInstance().getReference()
                     .child("wallet-entries").child(uid).child("default").orderByChild("timestamp")
                     .startAt(-endDate.getTimeInMillis()).endAt(-startDate.getTimeInMillis()));

@@ -17,8 +17,8 @@ import pl.cyfrogen.nhom16_mymoney.base.BaseActivity;
 import pl.cyfrogen.nhom16_mymoney.exceptions.EmptyStringException;
 import pl.cyfrogen.nhom16_mymoney.firebase.models.WalletEntryCategory;
 
-public class EditCustomCategoryActivity extends BaseActivity {
-
+public class EditCustomCategoryActivity extends BaseActivity
+{
     private TextInputEditText selectNameEditText;
     private Button selectColorButton;
     private Button editCustomCategoryButton;
@@ -30,7 +30,8 @@ public class EditCustomCategoryActivity extends BaseActivity {
     private TextInputLayout selectNameInputLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
 
         categoryID = getIntent().getExtras().getString("category-id");
@@ -42,7 +43,6 @@ public class EditCustomCategoryActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Edit custom category");
 
-
         iconImageView = findViewById(R.id.icon_imageview);
         iconImageView.setBackgroundTintList(ColorStateList.valueOf(selectedColor));
         selectNameEditText = findViewById(R.id.select_name_edittext);
@@ -51,18 +51,20 @@ public class EditCustomCategoryActivity extends BaseActivity {
         selectColorButton = findViewById(R.id.select_color_button);
         selectColorButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 final ColorPicker colorPicker = new ColorPicker(EditCustomCategoryActivity.this,
                         (selectedColor >> 16) & 0xFF,
                         (selectedColor >> 8) & 0xFF,
-                        (selectedColor >> 0) & 0xFF);
+                        (selectedColor) & 0xFF);
                 colorPicker.show();
 
                 Button okColor = colorPicker.findViewById(R.id.okColorButton);
 
                 okColor.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View v)
+                    {
                         selectedColor = colorPicker.getColor();
                         iconImageView.setBackgroundTintList(ColorStateList.valueOf(selectedColor));
                         colorPicker.dismiss();
@@ -74,7 +76,8 @@ public class EditCustomCategoryActivity extends BaseActivity {
         editCustomCategoryButton = findViewById(R.id.edit_custom_category_button);
         editCustomCategoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 try {
                     editCustomCategory(selectNameEditText.getText().toString(), "#" + Integer.toHexString(selectedColor));
                 } catch (EmptyStringException e) {
@@ -87,16 +90,17 @@ public class EditCustomCategoryActivity extends BaseActivity {
         removeCustomCategoryButton = findViewById(R.id.remove_custom_category_button);
         removeCustomCategoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 FirebaseDatabase.getInstance().getReference()
                         .child("users").child(getUid()).child("customCategories").child(categoryID).removeValue();
                 finish();
-
             }
         });
     }
 
-    private void editCustomCategory(String categoryName, String categoryHtmlCode) throws EmptyStringException {
+    private void editCustomCategory(String categoryName, String categoryHtmlCode) throws EmptyStringException
+    {
         if(categoryName == null || categoryName.length() == 0)
             throw new EmptyStringException("Entry name length should be > 0");
 
@@ -108,7 +112,8 @@ public class EditCustomCategoryActivity extends BaseActivity {
 
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem) {
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
         onBackPressed();
         return true;
     }

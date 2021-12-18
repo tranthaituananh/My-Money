@@ -41,8 +41,8 @@ import pl.cyfrogen.nhom16_mymoney.util.CurrencyHelper;
 import pl.cyfrogen.nhom16_mymoney.R;
 import pl.cyfrogen.nhom16_mymoney.firebase.models.WalletEntry;
 
-public class EditWalletEntryActivity extends BaseActivity {
-
+public class EditWalletEntryActivity extends BaseActivity
+{
     private Spinner selectCategorySpinner;
     private TextInputEditText selectNameEditText;
     private Calendar choosedDate;
@@ -59,7 +59,8 @@ public class EditWalletEntryActivity extends BaseActivity {
     private TextInputLayout selectNameInputLayout;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_wallet_entry);
         setSupportActionBar(findViewById(R.id.toolbar));
@@ -104,18 +105,17 @@ public class EditWalletEntryActivity extends BaseActivity {
             }
         });
 
-
-
         editEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 try {
                     editWalletEntry(((selectTypeSpinner.getSelectedItemPosition() * 2) - 1) *
                                     CurrencyHelper.convertAmountStringToLong(selectAmountEditText.getText().toString()),
                             choosedDate.getTime(),
                             ((Category) selectCategorySpinner.getSelectedItem()).getCategoryID(),
                             selectNameEditText.getText().toString());
-                }  catch (EmptyStringException e) {
+                } catch (EmptyStringException e) {
                     selectNameInputLayout.setError(e.getMessage());
                 } catch (ZeroBalanceDifferenceException e) {
                     selectAmountInputLayout.setError(e.getMessage());
@@ -125,11 +125,13 @@ public class EditWalletEntryActivity extends BaseActivity {
 
         removeEntryButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 showRemoveWalletEntryDialog();
             }
 
-            public void showRemoveWalletEntryDialog() {
+            public void showRemoveWalletEntryDialog()
+            {
                 AlertDialog.Builder builder = new AlertDialog.Builder(EditWalletEntryActivity.this);
                 builder.setMessage("Are you sure?").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -141,23 +143,24 @@ public class EditWalletEntryActivity extends BaseActivity {
             }
         });
 
-
-
         UserProfileViewModelFactory.getModel(getUid(), this).observe(this, new FirebaseObserver<FirebaseElement<User>>() {
             @Override
-            public void onChanged(FirebaseElement<User> firebaseElement) {
-                if (firebaseElement.hasNoError()) {
+            public void onChanged(FirebaseElement<User> firebaseElement)
+            {
+                if (firebaseElement.hasNoError())
+                {
                     user = firebaseElement.getElement();
                     dataUpdated();
                 }
             }
         });
 
-
         WalletEntryViewModelFactory.getModel(getUid(), walletId, this).observe(this, new FirebaseObserver<FirebaseElement<WalletEntry>>() {
             @Override
-            public void onChanged(FirebaseElement<WalletEntry> firebaseElement) {
-                if (firebaseElement.hasNoError()) {
+            public void onChanged(FirebaseElement<WalletEntry> firebaseElement)
+            {
+                if (firebaseElement.hasNoError())
+                {
                     walletEntry = firebaseElement.getElement();
                     dataUpdated();
                 }
@@ -167,8 +170,12 @@ public class EditWalletEntryActivity extends BaseActivity {
 
     }
 
-    public void dataUpdated() {
-        if (walletEntry == null || user == null) return;
+    public void dataUpdated()
+    {
+        if (walletEntry == null || user == null)
+        {
+            return;
+        }
 
         final List<Category> categories = CategoriesHelper.getCategories(user);
         EntryCategoriesAdapter categoryAdapter = new EntryCategoriesAdapter(this,
@@ -181,22 +188,28 @@ public class EditWalletEntryActivity extends BaseActivity {
         updateDate();
         selectNameEditText.setText(walletEntry.name);
 
-
         selectTypeSpinner.post(new Runnable() {
             @Override
-            public void run() {
-                if (walletEntry.balanceDifference < 0) selectTypeSpinner.setSelection(0);
-                else selectTypeSpinner.setSelection(1);            }
+            public void run()
+            {
+                if (walletEntry.balanceDifference < 0)
+                {
+                    selectTypeSpinner.setSelection(0);
+                }
+                else {
+                    selectTypeSpinner.setSelection(1);
+                }
+            }
         });
 
         selectCategorySpinner.post(new Runnable() {
             @Override
-            public void run() {
+            public void run()
+            {
                 EntryCategoriesAdapter adapter = (EntryCategoriesAdapter) selectCategorySpinner.getAdapter();
                 selectCategorySpinner.setSelection(adapter.getItemIndex(walletEntry.categoryID));
             }
         });
-
 
         long amount = Math.abs(walletEntry.balanceDifference);
         String current = CurrencyHelper.formatCurrency(user.currency, amount);
@@ -206,8 +219,8 @@ public class EditWalletEntryActivity extends BaseActivity {
 
     }
 
-
-    private void updateDate() {
+    private void updateDate()
+    {
         SimpleDateFormat dataFormatter = new SimpleDateFormat("yyyy-MM-dd");
         chooseDayTextView.setText(dataFormatter.format(choosedDate.getTime()));
 
@@ -215,12 +228,15 @@ public class EditWalletEntryActivity extends BaseActivity {
         chooseTimeTextView.setText(dataFormatter2.format(choosedDate.getTime()));
     }
 
-    public void editWalletEntry(long balanceDifference, Date entryDate, String entryCategory, String entryName) throws EmptyStringException, ZeroBalanceDifferenceException {
-        if (balanceDifference == 0) {
+    public void editWalletEntry(long balanceDifference, Date entryDate, String entryCategory, String entryName) throws EmptyStringException, ZeroBalanceDifferenceException
+    {
+        if (balanceDifference == 0)
+        {
             throw new ZeroBalanceDifferenceException("Balance difference should not be 0");
         }
 
-        if (entryName == null || entryName.length() == 0) {
+        if (entryName == null || entryName.length() == 0)
+        {
             throw new EmptyStringException("Entry name length should be > 0");
         }
 
@@ -233,7 +249,8 @@ public class EditWalletEntryActivity extends BaseActivity {
         finish();
     }
 
-    public void removeWalletEntry() {
+    public void removeWalletEntry()
+    {
         user.wallet.sum -= walletEntry.balanceDifference;
         UserProfileViewModelFactory.saveModel(getUid(), user);
 
@@ -243,19 +260,21 @@ public class EditWalletEntryActivity extends BaseActivity {
     }
 
 
-    private void pickTime() {
+    private void pickTime()
+    {
         new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute)
+            {
                 choosedDate.set(Calendar.HOUR_OF_DAY, hourOfDay);
                 choosedDate.set(Calendar.MINUTE, minute);
                 updateDate();
-
             }
         }, choosedDate.get(Calendar.HOUR_OF_DAY), choosedDate.get(Calendar.MINUTE), true).show();
     }
 
-    private void pickDate() {
+    private void pickDate()
+    {
         final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH);
@@ -264,18 +283,18 @@ public class EditWalletEntryActivity extends BaseActivity {
         new DatePickerDialog(this,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+                    {
                         choosedDate.set(year, monthOfYear, dayOfMonth);
                         updateDate();
-
                     }
                 }, year, month, day).show();
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem)
     {
         onBackPressed();
         return true;
     }
-
 }

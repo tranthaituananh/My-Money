@@ -13,7 +13,8 @@ import java.util.List;
 
 import pl.cyfrogen.nhom16_mymoney.R;
 
-public class EntryTypesAdapter extends ArrayAdapter<String> {
+public class EntryTypesAdapter extends ArrayAdapter<String>
+{
     private final List<EntryTypeListViewModel> items;
     private final Context context;
 
@@ -31,11 +32,13 @@ public class EntryTypesAdapter extends ArrayAdapter<String> {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent)
+    {
         return createItemView(position, convertView, parent);
     }
 
-    private View createItemView(int position, View convertView, ViewGroup parent) {
+    private View createItemView(int position, View convertView, ViewGroup parent)
+    {
         final View view = LayoutInflater.from(context).inflate(R.layout.new_entry_type_spinner_row, parent, false);
 
         TextView textView = view.findViewById(R.id.item_category);
