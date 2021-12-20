@@ -36,13 +36,11 @@
                 android:text="Incomes/expenses comparasion:"
                 android:textColor="@color/secondary_text_material_light"
                 android:textSize="16sp" />
-
-
         </RelativeLayout>
+
         <include
             android:id="@+id/incomes_expenses_view"
             layout="@layout/income_expenses_comparasion_row" />
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -62,8 +60,6 @@
                 android:text="Top expenses:"
                 android:textColor="@color/secondary_text_material_light"
                 android:textSize="16sp" />
-
-
         </RelativeLayout>
 
         <ListView
@@ -75,7 +71,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:paddingBottom="120dp"/>
-
     </LinearLayout>
 
     <android.support.constraint.Guideline
@@ -94,7 +89,6 @@
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
         <com.github.mikephil.charting.charts.PieChart
-
             android:id="@+id/pie_chart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -105,7 +99,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
         </com.github.mikephil.charting.charts.PieChart>
     </FrameLayout>
 
@@ -130,9 +123,5 @@
             android:text="Top expenses:"
             android:textColor="@color/secondary_text_material_light"
             android:textSize="16sp" />
-
-
     </RelativeLayout>
-
-
 </android.support.constraint.ConstraintLayout>

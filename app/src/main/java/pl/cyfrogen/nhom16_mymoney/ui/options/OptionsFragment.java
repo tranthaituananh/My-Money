@@ -52,12 +52,12 @@ public class OptionsFragment extends PreferenceFragmentCompat {
             }
         }
 
-        for (Preference preference : preferences) {
+        for (Preference preference : preferences)
+        {
             preference.setEnabled(false);
         }
 
         UserProfileViewModelFactory.getModel(getUid(), getActivity()).observe(this, new FirebaseObserver<FirebaseElement<User>>() {
-
             @Override
             public void onChanged(FirebaseElement<User> element) {
                 if (!element.hasNoError()) return;
@@ -67,7 +67,8 @@ public class OptionsFragment extends PreferenceFragmentCompat {
         });
         Preference policyPreference = findPreference(getString(R.string.pref_key_policy));
         policyPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            public boolean onPreferenceClick(Preference preference) {
+            public boolean onPreferenceClick(Preference preference)
+            {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW,
                         Uri.parse(Links.PRIVACY_POLICY_LINK));
                 startActivity(browserIntent);
@@ -75,10 +76,10 @@ public class OptionsFragment extends PreferenceFragmentCompat {
             }
         });
 
-
         Preference logoutPreference = findPreference(getString(R.string.pref_key_logout));
         logoutPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-            public boolean onPreferenceClick(Preference preference) {
+            public boolean onPreferenceClick(Preference preference)
+            {
                 FirebaseAuth.getInstance().signOut();
                 Intent broadcastIntent = new Intent();
                 broadcastIntent.setAction("pl.cyfrogen.budget.ACTION_LOGOUT");
@@ -96,11 +97,12 @@ public class OptionsFragment extends PreferenceFragmentCompat {
                 return true;
             }
         });
-
     }
 
-    private void dataUpdated() {
-        for (Preference preference : preferences) {
+    private void dataUpdated()
+    {
+        for (Preference preference : preferences)
+        {
             preference.setEnabled(true);
         }
 
@@ -108,7 +110,8 @@ public class OptionsFragment extends PreferenceFragmentCompat {
         currencyPreference.setSummary(user.currency.symbol);
         currencyPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
-            public boolean onPreferenceClick(Preference preference) {
+            public boolean onPreferenceClick(Preference preference)
+            {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
                 alert.setTitle("Set currency");
                 View layout = getLayoutInflater().inflate(R.layout.set_currency_dialog, null);
@@ -138,7 +141,6 @@ public class OptionsFragment extends PreferenceFragmentCompat {
             }
         });
 
-
         Preference firstWeekDayPreference = findPreference(getString(R.string.pref_key_first_week_day));
         firstWeekDayPreference.setSummary(getDayString(user.userSettings.dayOfWeekStart));
         firstWeekDayPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -164,7 +166,6 @@ public class OptionsFragment extends PreferenceFragmentCompat {
                 return true;
             }
         });
-
 
         Preference firstMonthDayPreference = findPreference(getString(R.string.pref_key_first_month_day));
         firstMonthDayPreference.setSummary("" + (user.userSettings.dayOfMonthStart + 1));
@@ -194,7 +195,6 @@ public class OptionsFragment extends PreferenceFragmentCompat {
                                 } catch (NumberRangeException e) {
                                     editText.setError(e.getMessage());
                                 }
-
                             }
 
                             private void setDate(String s) throws NumberRangeException {
@@ -214,7 +214,6 @@ public class OptionsFragment extends PreferenceFragmentCompat {
                 return true;
             }
         });
-
 
         {
             Preference counterTypePreference = findPreference(getString(R.string.pref_key_counter_type));
@@ -244,7 +243,6 @@ public class OptionsFragment extends PreferenceFragmentCompat {
                     return true;
                 }
             });
-
         }
 
         {
@@ -275,14 +273,14 @@ public class OptionsFragment extends PreferenceFragmentCompat {
                     return true;
                 }
             });
-
         }
 
         Preference limitPreference = findPreference(getString(R.string.pref_key_limit));
         limitPreference.setSummary(CurrencyHelper.formatCurrency(user.currency, user.userSettings.limit));
         limitPreference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
-            public boolean onPreferenceClick(Preference preference) {
+            public boolean onPreferenceClick(Preference preference)
+            {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
                 alert.setTitle("Set limit:");
                 View layout = getLayoutInflater().inflate(R.layout.set_limit_dialog, null);
@@ -292,7 +290,8 @@ public class OptionsFragment extends PreferenceFragmentCompat {
                 alert.setNegativeButton("Cancel", null);
                 alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
+                    public void onClick(DialogInterface dialog, int which)
+                    {
                         user.userSettings.limit = CurrencyHelper.convertAmountStringToLong(editText.getText().toString());
                         saveUser(user);
                     }
@@ -302,8 +301,6 @@ public class OptionsFragment extends PreferenceFragmentCompat {
                 return true;
             }
         });
-
-
     }
 
     private String getDayString(int dayOfWeek) {
@@ -326,19 +323,16 @@ public class OptionsFragment extends PreferenceFragmentCompat {
         return "";
     }
 
-    private void saveUser(User user) {
+    private void saveUser(User user)
+    {
         UserProfileViewModelFactory.saveModel(getUid(), user);
     }
 
     @Override
-    public void onCreatePreferences(Bundle bundle, String s) {
+    public void onCreatePreferences(Bundle bundle, String s) {}
 
-    }
-
-    public String getUid() {
+    public String getUid()
+    {
         return FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
-
 }
-
-

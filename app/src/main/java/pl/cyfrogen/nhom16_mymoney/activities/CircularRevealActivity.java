@@ -31,7 +31,6 @@ public abstract class CircularRevealActivity extends BaseActivity
         this.fabID = fabID;
         this.container1ID = container1ID;
         this.container2ID = container2ID;
-
     }
 
     @Override

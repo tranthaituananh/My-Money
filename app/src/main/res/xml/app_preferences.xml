@@ -13,11 +13,11 @@
             android:title="Homescreen counter period" />
         <Preference
             android:key="@string/pref_key_limit"
-            android:summary="120$"
+            android:summary="27052001VNĐ"
             android:title="Limit" />
         <Preference
             android:key="@string/pref_key_currency"
-            android:summary="$"
+            android:summary="VNĐ"
             android:title="Currency" />
         <Preference
             android:key="@string/pref_key_custom_categories"

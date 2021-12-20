@@ -24,7 +24,6 @@ public class UserProfileBaseViewModel extends ViewModel
         if(liveData.getValue() != null) observer.onChanged(liveData.getValue());
         liveData.observe(owner, firebaseElement -> {
             if(firebaseElement != null) observer.onChanged(firebaseElement);
-
         });
     }
 
