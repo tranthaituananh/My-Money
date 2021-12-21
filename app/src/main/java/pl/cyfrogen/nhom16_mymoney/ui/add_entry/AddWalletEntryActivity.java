@@ -142,7 +142,7 @@ public class AddWalletEntryActivity extends CircularRevealActivity
 
     private void updateDate()
     {
-        SimpleDateFormat dataFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dataFormatter = new SimpleDateFormat("dd/MM/yyyy");
         chooseDayTextView.setText(dataFormatter.format(chosenDate.getTime()));
 
         SimpleDateFormat dataFormatter2 = new SimpleDateFormat("HH:mm");

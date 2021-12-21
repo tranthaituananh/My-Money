@@ -199,7 +199,7 @@
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
     <color name="circle_background">#f2f2f2</color>
-    <color name="colorAccent">#0509FF</color>
+    <color name="colorAccent">#0104F5</color>
     <color name="colorPrimary">#0099CC</color>
     <color name="colorPrimaryDark">#0099CC</color>
     <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
@@ -327,7 +327,7 @@
     <color name="primary_text_disabled_material_light">#39000000</color>
     <color name="primary_text_expense">#F00900</color>
     <color name="primary_text_income">#009F75</color>
-    <color name="primary_text_material_light">#de000000</color>
+    <color name="primary_text_material_light">#000000</color>
     <color name="red">#ff3333</color>
     <color name="red_focused">#853333</color>
     <color name="ripple_material_dark">#33ffffff</color>
