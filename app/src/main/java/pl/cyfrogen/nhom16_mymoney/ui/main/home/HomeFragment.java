@@ -193,7 +193,6 @@ public class HomeFragment extends BaseFragment {
         });
 
         adapter.notifyDataSetChanged();
-        totalBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, user.wallet.sum));
 
         if (user.userSettings.homeCounterType == UserSettings.HOME_COUNTER_TYPE_SHOW_LIMIT)
         {
@@ -206,15 +205,17 @@ public class HomeFragment extends BaseFragment {
 
             gauge.setPointStartColor(ContextCompat.getColor(getContext(), R.color.gauge_white));
             gauge.setPointEndColor(ContextCompat.getColor(getContext(), R.color.gauge_white));
-            gauge.setStrokeColor(ContextCompat.getColor(getContext(), R.color.gauge_gray));
+            gauge.setStrokeColor(ContextCompat.getColor(getContext(), R.color.gauge_expense));
 
             long limit = user.userSettings.limit;
             long expenses = -expensesSumInDateRange;
             int percentage = (int) (expenses * 100 / (double) limit);
             if (percentage > 100) percentage = 100;
             gauge.setValue(percentage);
-            gaugeBalanceLeftTextView.setText(CurrencyHelper.formatCurrency(user.currency, limit - expenses) + " left");
+            totalBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, limit - expenses) + " left");
+            gaugeBalanceLeftTextView.setVisibility(View.INVISIBLE);
         } else {
+            totalBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, incomesSumInDateRange+expensesSumInDateRange));
             gaugeLeftBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, incomesSumInDateRange));
             gaugeLeftLine1TextView.setText("Incomes");
             gaugeLeftLine2TextView.setVisibility(View.INVISIBLE);
