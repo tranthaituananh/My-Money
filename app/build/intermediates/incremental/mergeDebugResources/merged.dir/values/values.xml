@@ -199,9 +199,9 @@
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
     <color name="circle_background">#f2f2f2</color>
-    <color name="colorAccent">#4169E1</color>
-    <color name="colorPrimary">#0000CD</color>
-    <color name="colorPrimaryDark">#0000CD</color>
+    <color name="colorAccent">#0509FF</color>
+    <color name="colorPrimary">#0099CC</color>
+    <color name="colorPrimaryDark">#0099CC</color>
     <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
     <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
     <color name="common_google_signin_btn_text_dark_focused">@android:color/black</color>
@@ -242,8 +242,8 @@
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
     <color name="gauge_expense">#F00900</color>
-    <color name="gauge_gray">#ababab</color>
-    <color name="gauge_income">#1BF001</color>
+    <color name="gauge_gray">#808080</color>
+    <color name="gauge_income">#009F75</color>
     <color name="gauge_white">#FFFFFF</color>
     <color name="help_text_material_light">#9b9b9b</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
@@ -326,7 +326,7 @@
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
     <color name="primary_text_expense">#F00900</color>
-    <color name="primary_text_income">#1BF001</color>
+    <color name="primary_text_income">#009F75</color>
     <color name="primary_text_material_light">#de000000</color>
     <color name="red">#ff3333</color>
     <color name="red_focused">#853333</color>

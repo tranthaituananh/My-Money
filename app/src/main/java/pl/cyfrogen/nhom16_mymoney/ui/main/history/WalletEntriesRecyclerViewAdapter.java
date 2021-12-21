@@ -95,7 +95,7 @@ public class WalletEntriesRecyclerViewAdapter extends RecyclerView.Adapter<Walle
         holder.nameTextView.setText(walletEntry.name);
 
         Date date = new Date(-walletEntry.timestamp);
-        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm dd/MM/yyyy");
         holder.dateTextView.setText(dateFormat.format(date));
         holder.moneyTextView.setText(CurrencyHelper.formatCurrency(user.currency, walletEntry.balanceDifference));
         holder.moneyTextView.setTextColor(ContextCompat.getColor(fragmentActivity,

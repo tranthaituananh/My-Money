@@ -14,7 +14,7 @@ public class Currency
     public Currency(String symbol, boolean left, boolean space)
     {
         this.symbol = symbol;
-        this.left=left;
-        this.space=space;
+        this.left = left;
+        this.space = space;
     }
 }

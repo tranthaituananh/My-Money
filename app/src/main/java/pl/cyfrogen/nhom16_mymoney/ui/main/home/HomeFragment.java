@@ -197,9 +197,11 @@ public class HomeFragment extends BaseFragment {
         if (user.userSettings.homeCounterType == UserSettings.HOME_COUNTER_TYPE_SHOW_LIMIT)
         {
             gaugeLeftBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, 0));
+            dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             gaugeLeftLine1TextView.setText(dateFormat.format(startDate.getTime()));
             gaugeLeftLine2TextView.setVisibility(View.INVISIBLE);
             gaugeRightBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, user.userSettings.limit));
+            dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             gaugeRightLine1TextView.setText(dateFormat.format(endDate.getTime()));
             gaugeRightLine2TextView.setVisibility(View.INVISIBLE);
 
@@ -212,7 +214,7 @@ public class HomeFragment extends BaseFragment {
             int percentage = (int) (expenses * 100 / (double) limit);
             if (percentage > 100) percentage = 100;
             gauge.setValue(percentage);
-            totalBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, limit - expenses) + " left");
+            totalBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, limit - expenses));
             gaugeBalanceLeftTextView.setVisibility(View.INVISIBLE);
         } else {
             totalBalanceTextView.setText(CurrencyHelper.formatCurrency(user.currency, incomesSumInDateRange+expensesSumInDateRange));
@@ -228,7 +230,7 @@ public class HomeFragment extends BaseFragment {
             gauge.setStrokeColor(ContextCompat.getColor(getContext(), R.color.gauge_expense));
             if (incomesSumInDateRange - expensesSumInDateRange != 0)
                 gauge.setValue((int) (incomesSumInDateRange * 100 / (double) (incomesSumInDateRange - expensesSumInDateRange)));
-
+            dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             gaugeBalanceLeftTextView.setText(dateFormat.format(startDate.getTime()) + " - " +
                     dateFormat.format(endDate.getTime()));
         }

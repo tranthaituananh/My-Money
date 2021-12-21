@@ -107,7 +107,7 @@ public class HistoryFragment extends BaseFragment
         {
             calendarIcon.setIcon(ContextCompat.getDrawable(getContext(), R.drawable.icon_calendar_active));
 
-            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yy");
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
 
             dividerTextView.setText("Date range: " + dateFormat.format(model.getStartDate().getTime())
                     + "  -  " + dateFormat.format(model.getEndDate().getTime()));

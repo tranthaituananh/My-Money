@@ -211,7 +211,7 @@ public class StatisticsFragment extends BaseFragment
 
             adapter.notifyDataSetChanged();
 
-            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yy");
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
 
             dividerTextView.setText("Date range: " + dateFormat.format(calendarStart.getTime())
                     + "  -  " + dateFormat.format(calendarEnd.getTime()));

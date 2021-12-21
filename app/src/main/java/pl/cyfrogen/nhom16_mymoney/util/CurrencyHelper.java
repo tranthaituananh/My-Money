@@ -1,7 +1,9 @@
 package pl.cyfrogen.nhom16_mymoney.util;
 
+import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
+import java.text.NumberFormat;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -13,17 +15,14 @@ public class CurrencyHelper
     public static String formatCurrency(Currency currency, long money)
     {
         long absMoney = Math.abs(money);
+        String str = NumberFormat.getInstance().format(absMoney);
         return (currency.left ? (currency.symbol + (currency.space ? " " : "")): "") +
-                (money < 0 ? "-" : "") +
-                (absMoney / 100) + "." +
-                (absMoney % 100 < 10 ? "0" : "") +
-                (absMoney % 100)  +
-                (currency.left ? "" : ((currency.space ? " " : "") + currency.symbol));
+                (money < 0 ? "-" : "") + str;
     }
 
     public static void setupAmountEditText(EditText editText, User user)
     {
-        editText.setText(CurrencyHelper.formatCurrency(user.currency,0), TextView.BufferType.EDITABLE);
+        editText.setText(CurrencyHelper.formatCurrency(user.currency,0));
         editText.addTextChangedListener(new TextWatcher() {
             private String current = "";
 

@@ -221,7 +221,7 @@ public class EditWalletEntryActivity extends BaseActivity
 
     private void updateDate()
     {
-        SimpleDateFormat dataFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dataFormatter = new SimpleDateFormat("yyyy/MM/dd");
         chooseDayTextView.setText(dataFormatter.format(choosedDate.getTime()));
 
         SimpleDateFormat dataFormatter2 = new SimpleDateFormat("HH:mm");
