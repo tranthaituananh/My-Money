@@ -12,7 +12,7 @@ The final project of Mobile application programming (Đồ án cuối kỳ Lập
       - History of revenue and expenditure  
       - Spending chart    
       - Revenue and expenditure correlation  
-      - Use system setting(Light/Dark mode)  
+      - Use system setting (Light/Dark mode)  
       - Change monetary unit  
       - Real-time sync data  
    
