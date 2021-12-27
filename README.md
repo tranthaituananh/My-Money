@@ -1,5 +1,5 @@
 # My Money
-The final project of Mobile application programming (Đồ án cuối kỳ Lập trình ứng dụng trên thiết bị di động)
+The final project of Mobile application programming (Đồ án cuối kỳ Phát triển ứng dụng trên thiết bị di động)
 
 ## English  
 1. Introduce 
@@ -18,7 +18,7 @@ The final project of Mobile application programming (Đồ án cuối kỳ Lập
    
 ## Vietnamese
 1. Giới thiệu
-      - Đồ án cuối kỳ Lập trình ứng dụng trên thiết bị di động      
+      - Đồ án cuối kỳ môn Phát triển ứng dụng trên thiết bị di động        
       - Ứng dụng android quản lý chi tiêu "My Money"
 2. Tính năng  
       - Viết bằng ngôn ngữ   
