@@ -21,7 +21,7 @@ The final project of Mobile application programming (Đồ án cuối kỳ môn 
       - Đồ án cuối kỳ môn Phát triển ứng dụng trên thiết bị di động        
       - Ứng dụng android quản lý chi tiêu "My Money"
 2. Tính năng  
-      - Viết bằng ngôn ngữ   
+      - Viết bằng ngôn ngữ Java  
       - Đăng nhập qua tài khoản google  
       - Nhập, sửa, xóa khoản thu/chi  
       - Lịch sử các khoản thu chi
