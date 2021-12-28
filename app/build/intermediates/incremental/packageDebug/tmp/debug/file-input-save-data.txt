@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Dec 22 00:15:06 ICT 2021
+#Mon Dec 27 20:09:51 ICT 2021
 1.base=D\:\\DATA\\DOWNLOADS\\nhom16_my_money\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 2.path=fonts/Roboto-Medium.ttf
 0.baseType=DIRECTORY
