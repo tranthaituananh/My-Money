@@ -1,5 +1,5 @@
 # My Money
-The final project of Mobile application programming (Đồ án cuối kỳ Phát triển ứng dụng trên thiết bị di động)
+The final project of Mobile application programming (Đồ án cuối kỳ môn Phát triển ứng dụng trên thiết bị di động)
 
 ## English  
 1. Introduce 
