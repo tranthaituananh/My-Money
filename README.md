@@ -4,7 +4,7 @@ The final project of Mobile application programming (Đồ án cuối kỳ môn 
 ## English  
 1. Introduce 
       - Final project of Mobile application programming  
-      - App android expense management "My Money"  
+      - Android app expense management "My Money"  
 2. Feature  
       - Written in Java    
       - Sign in via google account
