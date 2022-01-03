@@ -1,21 +1,6 @@
 # My Money
 The final project of Mobile application programming (Đồ án cuối kỳ môn Phát triển ứng dụng trên thiết bị di động)
 
-## :camera: Screenshots
-<p align="center">
-      <br>
-      <img src="./img/loading.jpg" alt="My_Money" width="25%">  
-      <img src="./img/sign_in.jpg" alt="My_Money" width="25%">
-      <br>
-      <img src="./img/home.jpg" alt="My_Money" width="25%">  
-      <img src="./img/history.jpg" alt="My_Money" width="25%">
-      <img src="./img/statistics.jpg" alt="My_Money" width="25%">
-      <br>
-      <img src="./img/darkmode_home.jpg" alt="My_Money" width="25%">  
-      <img src="./img/darkmode_history.jpg" alt="My_Money" width="25%">
-      <img src="./img/darkmode_statistics.jpg" alt="My_Money" width="25%">
-</p>
-
 ## English  
 1. Introduce 
       - Final project of Mobile application programming  
@@ -44,8 +29,23 @@ The final project of Mobile application programming (Đồ án cuối kỳ môn 
       - Tương quan thu chi  
       - Chế độ sáng tối dựa trên cài đặt của hệ thống  
       - Thay đổi đơn vị tiền tệ  
-      - Đồng bộ dữ liệu theo thời gian thực
-      
+      - Đồng bộ dữ liệu theo thời gian thực  
+
+## :camera: Screenshots
+<p align="center">
+      <br>
+      <img src="./img/loading.jpg" alt="My_Money" width="25%">  
+      <img src="./img/sign_in.jpg" alt="My_Money" width="25%">
+      <br>
+      <img src="./img/home.jpg" alt="My_Money" width="25%">  
+      <img src="./img/history.jpg" alt="My_Money" width="25%">
+      <img src="./img/statistics.jpg" alt="My_Money" width="25%">
+      <br>
+      <img src="./img/darkmode_home.jpg" alt="My_Money" width="25%">  
+      <img src="./img/darkmode_history.jpg" alt="My_Money" width="25%">
+      <img src="./img/darkmode_statistics.jpg" alt="My_Money" width="25%">
+</p>      
+
 ## Author (Tác giả)  
     GVHD: ThS Trần Hồng Nghi 
     Sinh viên thực hiện
